@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="GeniusOcean">
+<meta name="csrf-token" content="wtFp90tHOLIP7tci4FOpCXa7cgmubRY5Ij1UKNvf">
+
+<title>Макет административной части</title>
+<link href="./admin/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="./admin/fontawesome.css">
+
+<link rel="stylesheet" href="./admin/icofont.min.css">
+
+<link href="./admin/dark-side-style.css" rel="stylesheet">
+<link href="./admin/waves.min.css" rel="stylesheet">
+<link href="./admin/plugin.css" rel="stylesheet">
+<link href="./admin/jquery.tagit.css" rel="stylesheet">
+<link rel="stylesheet" href="./admin/bootstrap-coloroicker.css">
+
+
+<link href="./admin/style.css" rel="stylesheet">
+<link href="./admin/custom.css" rel="stylesheet">
+<link href="./admin/responsive.css" rel="stylesheet">
+<link href="./admin/common.css" rel="stylesheet">
+<style type="text/css" id="notify-bootstrap">.notifyjs-bootstrap-base {
+	font-weight: bold;
+	padding: 8px 15px 8px 14px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	background-color: #fcf8e3;
+	border: 1px solid #fbeed5;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	white-space: nowrap;
+	padding-left: 25px;
+	background-repeat: no-repeat;
+	background-position: 3px 7px;
+}
+.notifyjs-bootstrap-error {
+	color: #B94A48;
+	background-color: #F2DEDE;
+	border-color: #EED3D7;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAtRJREFUeNqkVc1u00AQHq+dOD+0poIQfkIjalW0SEGqRMuRnHos3DjwAH0ArlyQeANOOSMeAA5VjyBxKBQhgSpVUKKQNGloFdw4cWw2jtfMOna6JOUArDTazXi/b3dm55socPqQhFka++aHBsI8GsopRJERNFlY88FCEk9Yiwf8RhgRyaHFQpPHCDmZG5oX2ui2yilkcTT1AcDsbYC1NМаяOi7zTX2Agx7A9luAl88BauiiQ/cJaZQfIpAlngDcvZZMrl8vFPK5+XktrWlx3/ehZ5r9+t6e+WVnp1pxnNIjgBe4/6dAysQc8dsmHwPcW9C0h3fW1hans1ltwJhy0GxK7XZbUlMp5Ww2eyan6+ft/f2FAqXGK4CvQk5HueFz7D6GOZtIrK+srupdx1GRBBqNBtzc2AiMr7nPplRdKhb1q6q6zjFhrklEFOUutoQ50xcX86ZlqaZpQrfbBdu2R6/G19zX6XSgh6RX5ubyHCM8nqSID6ICrGiZjGYYxojEsiw4PDwMSL5VKsC8Yf4VRYFzMzMaxwjlJSlCyAQ9l0CW44PBADzXhe7xMdi9HtTrdYjFYkDQL0cn4Xdq2/EAE+InCnvADTf2eah4Sx9vExQjkqXT6aAERICMewd/UAp/IeYANM2joxt+q5VI+ieq2i0Wg3l6DNzHwTERPgo1ko7XBXj3vdlsT2F+UuhIhYkp7u7CarkcrFOCtR3H5JiwbAIeImjT/YQKKBtGjRFCU5IUgFRe7fF4cCNVIPMYo3VKqxwjyNAXNepuopyqnld602qVsfRpEkkz+GFL1wPj6ySXBpJtWVa5xlhpcyhBNwpZHmtX8AGgfIExo0ZpzkWVTBGiXCSEaHh62/PoR0p/vHaczxXGnj4bSo+G78lELU80h1uogBwWLf5YlsPmgDEd4M236xjm+8nm4IuE/9u+/PH2JXZfbwz4zw1WbO+SQPpXfwG/BBgAhCNZiSb/pOQAAAAASUVORK5CYII=);
+}
+.notifyjs-bootstrap-success {
+	color: #468847;
+	background-color: #DFF0D8;
+	border-color: #D6E9C6;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAutJREFUeNq0lctPE0Ecx38zu/RFS1EryqtgJFA08YCiMZIAQQ4eRG8eDGdPJiYeTIwHTfwPiAcvXIwXLwoXPaDxkWgQ6islKlJLSQWLUraPLTv7Gme32zoF9KSTfLO7v53vZ3d/M7/fIth+IO6INt2jjoA7bjHCJoAlzCRw59YwHYjBnfMPqAKWQYKjGkfCJqAF0xwZjipQtA3MxeSG87VhOOYegVrUCy7UZM9S6TLIdAamySTclZdYhFhRHloGYg7mgZv1Zzztvgud7V1tbQ2twYA34LJmF4p5dXF1KTufnE+SxeJtuCZNsLDCQU0+RyKTF27Unw101l8e6hns3u0PBalORVVVkcaEKBJDgV3+cGM4tKKmI+ohlIGnygKX00rSBfszz/n2uXv81wd6+rt1orsZCHRdr1Imk2F2Kob3hutSxW8thsd8AXNaln9D7CTfA6O+0UgkMuwVvEFFUbbAcrkcTA8+AtOk8E6KiQiDmMFSDqZItAzEVQviRkdDdaFgPp8HSZKAEAL5Qh7Sq2lIJBJwv2scUqkUnKoZgNhcDKhKg5aH+1IkcouCAdFGAQsuWZYhOjwFHQ96oagWgRoUov1T9kRBEODAwxM2QtEUl+Wp+Ln9VRo6BcMw4ErHRYjH4/B26AlQoQQTRdHWwcd9AH57+UAXddvDD37DmrBBV34WfqiXPl61g+vr6xA9zsGeM9gOdsNXkgpEtTwVvwOklXLKm6+/p5ezwk4B+j6droBs2CsGa/gNs6RIxazl4Tc25mpTgw/apPR1LYlNRFAzgsOxkyXYLIM1V8NMwyAkJSctD1eGVKiq5wWjSPdjmeTkiKvVW4f2YPHWl3GAVq6ymcyCTgovM3FzyRiDe2TaKcEKsLpJvNHjZgPNqEtyi6mZIm4SRFyLMUsONSSdkPeFtY1n0mczoY3BHTLhwPRy9/lzcziCw9ACI+yql0VLzcGAZbYSM5CCSZg1/9oc/nn7+i8N9p/8An4JMADxhH+xHfuiKwAAAABJRU5ErkJggg==);
+}
+.notifyjs-bootstrap-info {
+	color: #3A87AD;
+	background-color: #D9EDF7;
+	border-color: #BCE8F1;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QYFAhkSsdes/QAAA8dJREFUOMvVlGtMW2UYx//POaWHXg6lLaW0ypAtw1UCgbniNOLcVOLmAjHZolOYlxmTGXVZdAnRfXQm+7SoU4mXaOaiZsEpC9FkiQs6Z6bdCnNYruM6KNBw6YWewzl9z+sHImEWv+vz7XmT95f/+3/+7wP814v+efDOV3/SoX3lHAA+6ODeUFfMfjOWMADgdk+eEKz0pF7aQdMAcOKLLjrcVMVX3xdWN29/GhYP7SvnP0cWfS8caSkfHZsPE9Fgnt02JNutQ0QYHB2dDz9/pKX8QjjuO9xUxd/66HdxTeCHZ3rojQObGQBcuNjfplkD3b19Y/6MrimSaKgSMmpGU5WevmE/swa6Oy73tQHA0Rdr2Mmv/6A1n9w9suQ7097Z9lM4FlTgTDrzZTu4StXVfpiI48rVcUDM5cmEksrFnHxfpTtU/3BFQzCQF/2bYVoNbH7zmItbSoMj40JSzmMyX5qDvriA7QdrIIpA+3cdsMpu0nXI8cV0MtKXCPZev+gCEM1S2NHPvWfP/hL+7FSr3+0p5RBEyhEN5JCKYr8XnASMT0xBNyzQGQeI8fjsGD39RMPk7se2bd5ZtTyoFYXftF6y37gx7NeUtJJOTFlAHDZLDuILU3j3+H5oOrD3yWbIztugaAzgnBKJuBLpGfQrS8wO4FZgV+c1IxaLgWVU0tMLEETCos4xMzEIv9cJXQcyagIwigDGwJgOAtHAwAhisQUjy0ORGERiELgG4iakkzo4MYAxcM5hAMi1WWG1yYCJIcMUaBkVRLdGeSU2995TLWzcUAzONJ7J6FBVBYIggMzmFbvdBV44Corg8vjhzC+EJEl8U1kJtgYrhCzgc/vvTwXKSib1paRFVRVORDAJAsw5FuTaJEhWM2SHB3mOAlhkNxwuLzeJsGwqWzf5TFNdKgtY5qHp6ZFf67Y/sAVadCaVY5YACDDb3Oi4NIjLnWMw2QthCBIsVhsUTU9tvXsjeq9+X1d75/KEs4LNOfcdf/+HthMnvwxOD0wmHaXr7ZItn2wuH2SnBzbZAbPJwpPx+VQuzcm7dgRCB57a1uBzUDRL4bfnI0RE0eaXd9W89mpjqHZnUI5Hh2l2dkZZUhOqpi2qSmpOmZ64Tuu9qlz/SEXo6MEHa3wOip46F1n7633eekV8ds8Wxjn37Wl63VVa+ej5oeEZ/82ZBETJjpJ1Rbij2D3Z/1trXUvLsblCK0XfOx0SX2kMsn9dX+d+7Kf6h8o4AIykuffjT8L20LU+w4AZd5VvEPY+XpWqLV327HR7DzXuDnD8r+ovkBehJ8i+y8YAAAAASUVORK5CYII=);
+}
+.notifyjs-bootstrap-warn {
+	color: #C09853;
+	background-color: #FCF8E3;
+	border-color: #FBEED5;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAABJlBMVEXr6eb/2oD/wi7/xjr/0mP/ykf/tQD/vBj/3o7/uQ//vyL/twebhgD/4pzX1K3z8e349vK6tHCilCWbiQymn0jGworr6dXQza3HxcKkn1vWvV/5uRfk4dXZ1bD18+/52YebiAmyr5S9mhCzrWq5t6ufjRH54aLs0oS+qD751XqPhAybhwXsujG3sm+Zk0PTwG6Shg+PhhObhwOPgQL4zV2nlyrf27uLfgCPhRHu7OmLgAafkyiWkD3l49ibiAfTs0C+lgCniwD4sgDJxqOilzDWowWFfAH08uebig6qpFHBvH/aw26FfQTQzsvy8OyEfz20r3jAvaKbhgG9q0nc2LbZxXanoUu/u5WSggCtp1anpJKdmFz/zlX/1nGJiYmuq5Dx7+sAAADoPUZSAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfdBgUBGhh4aah5AAAAlklEQVQY02NgoBIIE8EUcwn1FkIXM1Tj5dDUQhPU502Mi7XXQxGz5uVIjGOJUUUW81HnYEyMi2HVcUOICQZzMMYmxrEyMylJwgUt5BljWRLjmJm4pI1hYp5SQLGYxDgmLnZOVxuooClIDKgXKMbN5ggV1ACLJcaBxNgcoiGCBiZwdWxOETBDrTyEFey0jYJ4eHjMGWgEAIpRFRCUt08qAAAAAElFTkSuQmCC);
+}
+</style><style type="text/css" id="core-notify">.notifyjs-corner {
+	position: fixed;
+	margin: 5px;
+	z-index: 1050;
+}
+
+.notifyjs-corner .notifyjs-wrapper,
+.notifyjs-corner .notifyjs-container {
+	position: relative;
+	display: block;
+	height: inherit;
+	width: inherit;
+	margin: 3px;
+}
+
+.notifyjs-wrapper {
+	z-index: 1;
+	position: absolute;
+	display: inline-block;
+	height: 0;
+	width: 0;
+}
+
+.notifyjs-container {
+	display: none;
+	z-index: 1;
+	position: absolute;
+}
+
+.notifyjs-hidable {
+	cursor: pointer;
+}
+
+[data-notify-text],[data-notify-html] {
+	position: relative;
+}
+
+.notifyjs-arrow {
+	position: absolute;
+	z-index: 2;
+	width: 0;
+	height: 0;
+}</style></head>
+<body>
+<div class="page">
+<div class="page-main">
+
+<div class="header">
+<div class="container-fluid">
+<div class="d-flex justify-content-between">
+<a class="admin-logo" href="#">
+<img src="./resource/1571567292logo.png" alt="">
+</a>
+<div class="menu-toggle-button">
+<a class="nav-link" href="javascript:;" id="sidebarCollapse">
+<div class="my-toggl-icon">
+<span class="bar1"></span>
+<span class="bar2"></span>
+<span class="bar3"></span>
+</div>
+</a>
+</div>
+<div class="right-eliment">
+<ul class="list">
+<input type="hidden" id="all_notf_count" value="1">
+<li class="bell-area">
+<a id="notf_conv" class="dropdown-toggle-1" href="#">
+<i class="fas fa-globe-americas"></i>
+</a>
+</li>
+<li class="bell-area">
+<a id="notf_conv" class="dropdown-toggle-1" href="javascript:;">
+<i class="far fa-envelope"></i>
+<span id="conv-notf-count">10</span>
+</a>
+<div class="dropdown-menu">
+<div class="dropdownmenu-wrapper" data-href="#" id="conv-notf-show">
+</div>
+</div>
+</li>
+<li class="bell-area">
+<a id="notf_product" class="dropdown-toggle-1" href="javascript:;">
+<i class="icofont-cart"></i>
+<span id="product-notf-count">20</span>
+</a>
+<div class="dropdown-menu">
+<div class="dropdownmenu-wrapper" data-href="#" id="product-notf-show">
+</div>
+</div>
+</li>
+<li class="bell-area">
+<a id="notf_user" class="dropdown-toggle-1" href="javascript:;">
+<i class="far fa-user"></i>
+<span id="user-notf-count">1</span>
+</a>
+<div class="dropdown-menu">
+<div class="dropdownmenu-wrapper" data-href="#" id="user-notf-show">
+</div>
+</div>
+</li>
+<li class="bell-area">
+<a id="notf_order" class="dropdown-toggle-1" href="javascript:;">
+<i class="far fa-newspaper"></i>
+<span id="order-notf-count">2</span>
+</a>
+<div class="dropdown-menu">
+<div class="dropdownmenu-wrapper" data-href="#" id="order-notf-show">
+</div>
+</div>
+</li>
+<li class="login-profile-area">
+<a class="dropdown-toggle-1" href="javascript:;">
+<div class="user-img">
+<img src="./admin/1556780563user.png" alt="">
+</div>
+</a>
+<div class="dropdown-menu">
+<div class="dropdownmenu-wrapper">
+<ul>
+<li>
+<a href="#"><i class="fas fa-user"></i> Редактировать профиль</a>
+</li>
+<li>
+<a href="#"><i class="fas fa-cog"></i> Сменить пароль</a>
+</li>
+<li>
+<a href="#"><i class="fas fa-power-off"></i> Выход</a>
+</li>
+</ul>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div class="wrapper">
+
+<nav id="sidebar" class="nav-sidebar">
+<ul class="list-unstyled components" id="accordion">
+<li class="active">
+<a href="#" class="wave-effect waves-effect waves-button active"><i class="fa fa-home mr-2"></i>Главная</a>
+</li>
+<li>
+<a href="#order" class="accordion-toggle wave-effect waves-effect waves-button" data-toggle="collapse" aria-expanded="false"><i class="fas fa-hand-holding-usd"></i>Заказы</a>
+<ul class="collapse list-unstyled" id="order" data-parent="#accordion">
+<li>
+<a href="#"> Все заказы</a>
+</li>
+<li>
+<a href="#pending"> На рассмотрении</a>
+</li>
+<li>
+<a href="#processing"> В процессе</a>
+</li>
+<li>
+<a href="#completed"> Завершенные заказы</a>
+</li>
+<li>
+<a href="#declined"> Отклоненные заказы</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#menu2" class="accordion-toggle wave-effect waves-effect waves-button" data-toggle="collapse" aria-expanded="false">
+<i class="icofont-cart"></i>Товары
+</a>
+<ul class="collapse list-unstyled" id="menu2" data-parent="#accordion">
+<li>
+<a href="#"><span>Добавить новый</span></a>
+</li>
+<li>
+<a href="#"><span>Все товары</span></a>
+</li>
+<li>
+<a href="#"><span>Категории</span></a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#affiliateprod" class="accordion-toggle wave-effect waves-effect waves-button" data-toggle="collapse" aria-expanded="false">
+<i class="icofont-cart"></i>Партнерские товары
+</a>
+<ul class="collapse list-unstyled" id="affiliateprod" data-parent="#accordion">
+<li>
+<a href="#"><span>Добавить партнерский товар</span></a>
+</li>
+<li>
+<a href="#"><span>Все партнерские товары</span></a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#menu3" class="accordion-toggle wave-effect waves-effect waves-button" data-toggle="collapse" aria-expanded="false">
+<i class="icofont-user"></i>Производители
+</a>
+<ul class="collapse list-unstyled" id="menu3" data-parent="#accordion">
+<li>
+<a href="#"><span>Список</span></a>
+</li>
+<li>
+<a href="#"><span>Выручка</span></a>
+</li>
+<li>
+<a href="#"><span>Изображения</span></a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#vendor" class="accordion-toggle wave-effect waves-effect waves-button" data-toggle="collapse" aria-expanded="false">
+<i class="icofont-ui-user-group"></i>Продавцы
+</a>
+<ul class="collapse list-unstyled" id="vendor" data-parent="#accordion">
+<li>
+<a href="#"><span>Список</span></a>
+</li>
+<li>
+<a href="#"><span>Выручка</span></a>
+</li>
+<li>
+<a href="#"><span>Подписки</span></a>
+</li>
+<li>
+<a href="#"><span>Фон по-умолчанию</span></a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#vendor1" class="accordion-toggle wave-effect waves-effect waves-button" data-toggle="collapse" aria-expanded="false">
+<i class="icofont-verification-check"></i>Верификация продавцов
+</a>
+<ul class="collapse list-unstyled" id="vendor1" data-parent="#accordion">
+<li>
+<a href="#"><span>Все верификации</span></a>
+</li>
+<li>
+<a href="#"><span>В процессе</span></a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#" class=" wave-effect waves-effect waves-button"><i class="fas fa-dollar-sign"></i>Ценовые планы</a>
+</li>
+<li>
+<a href="#menu5" class="accordion-toggle wave-effect waves-effect waves-button" data-toggle="collapse" aria-expanded="false"><i class="fas fa-sitemap"></i>Категории</a>
+<ul class="collapse list-unstyled
+        " id="menu5" data-parent="#accordion">
+<li class="">
+<a href="#"><span>Основные категории</span></a>
+</li>
+<li class="">
+<a href="#"><span>Дополнительные</span></a>
+</li>
+<li class="">
+<a href="#"><span>Дочерние</span></a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#"><i class="fas fa-upload"></i>Импорт товаров</a>
+</li>
+<li>
+<a href="#menu4" class="accordion-toggle wave-effect waves-effect waves-button" data-toggle="collapse" aria-expanded="false">
+<i class="icofont-speech-comments"></i>Обсуждения товаров
+</a>
+<ul class="collapse list-unstyled" id="menu4" data-parent="#accordion">
+<li>
+<a href="#"><span>Обзоры</span></a>
+</li>
+<li>
+<a href="#"><span>Комментарии</span></a>
+</li>
+<li>
+<a href="#"><span>Отчеты</span></a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#" class=" wave-effect waves-effect waves-button"><i class="fas fa-percentage"></i>Купоны</a>
+</li>
+<li>
+<a href="#blog" class="accordion-toggle wave-effect waves-effect waves-button" data-toggle="collapse" aria-expanded="false">
+<i class="fas fa-fw fa-newspaper"></i>Блоги
+</a>
+<ul class="collapse list-unstyled" id="blog" data-parent="#accordion">
+<li>
+<a href="#"><span>Категории</span></a>
+</li>
+<li>
+<a href="#"><span>Посты</span></a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#msg" class="accordion-toggle wave-effect waves-effect waves-button" data-toggle="collapse" aria-expanded="false">
+<i class="fas fa-fw fa-newspaper"></i>Сообщения
+</a>
+<ul class="collapse list-unstyled" id="msg" data-parent="#accordion">
+<li>
+<a href="#"><span>Заявки</span></a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#general" class="accordion-toggle wave-effect waves-effect waves-button" data-toggle="collapse" aria-expanded="false">
+<i class="fas fa-cogs"></i>Настройки
+</a>
+<ul class="collapse list-unstyled" id="general" data-parent="#accordion">
+<li>
+<a href="#"><span>Логотип</span></a>
+</li>
+<li>
+<a href="#"><span>Иконка</span></a>
+</li>
+<li>
+<a href="#"><span>Загрузчик</span></a>
+</li>
+<li>
+<a href="#"><span>Доставка</span></a>
+</li>
+<li>
+<a href="#"><span>Упаковка</span></a>
+</li>
+<li>
+<a href="#"><span>Места доставки</span></a>
+</li>
+<li>
+<a href="#"><span>Футер</span></a>
+</li>
+<li>
+<a href="#"><span>Информация для партнеров</span></a>
+</li>
+<li>
+<a href="#"><span>Всплывающий баннер</span></a>
+</li>
+<li>
+<a href="#"><span>Баннер с ошибкой</span></a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#homepage" class="accordion-toggle wave-effect waves-effect waves-button" data-toggle="collapse" aria-expanded="false">
+<i class="fas fa-edit"></i>Главная страница
+</a>
+<ul class="collapse list-unstyled" id="homepage" data-parent="#accordion">
+<li>
+<a href="#"><span>Слайдер</span></a>
+</li>
+<li>
+<a href="#"><span>Сервисы</span></a>
+</li>
+<li>
+<a href="#"><span>Баннер справа1</span></a>
+</li>
+<li>
+<a href="#"><span>Баннер справа2</span></a>
+</li>
+<li>
+<a href="#"><span>Отзывы</span></a>
+</li>
+<li>
+<a href="#"><span>Партнеры</span></a>
+</li>
+<li>
+<a href="#"><span>Главная страница</span></a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#menu" class="accordion-toggle wave-effect waves-effect waves-button" data-toggle="collapse" aria-expanded="false">
+<i class="fas fa-file-code"></i>Меню
+</a>
+<ul class="collapse list-unstyled" id="menu" data-parent="#accordion">
+<li>
+<a href="#"><span>FAQ</span></a>
+</li>
+<li>
+<a href="#"><span>Контакты</span></a>
+</li>
+<li>
+<a href="#"><span>Другие страницы</span></a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#emails" class="accordion-toggle wave-effect waves-effect waves-button" data-toggle="collapse" aria-expanded="false">
+<i class="fas fa-at"></i>Настройки Email
+</a>
+<ul class="collapse list-unstyled" id="emails" data-parent="#accordion">
+<li><a href="#"><span>Шаблоны</span></a></li>
+<li><a href="#"><span>Конфигурация</span></a></li>
+<li><a href="#"><span>Рассылки</span></a></li>
+</ul>
+</li>
+<li>
+<a href="#payments" class="accordion-toggle wave-effect waves-effect waves-button" data-toggle="collapse" aria-expanded="false">
+<i class="fas fa-file-code"></i>Настройки платежей
+</a>
+<ul class="collapse list-unstyled" id="payments" data-parent="#accordion">
+<li><a href="#"><span>Платежная информация</span></a></li>
+<li><a href="#"><span>Шлюзы</span></a></li>
+<li><a href="#"><span>Валюта</span></a></li>
+</ul>
+</li>
+<li>
+<a href="#socials" class="accordion-toggle wave-effect waves-effect waves-button" data-toggle="collapse" aria-expanded="false">
+<i class="fas fa-paper-plane"></i>Социальные сети
+</a>
+<ul class="collapse list-unstyled" id="socials" data-parent="#accordion">
+<li><a href="#"><span>Ссылки</span></a></li>
+<li><a href="#"><span>Facebook</span></a></li>
+<li><a href="#"><span>Google</span></a></li>
+</ul>
+</li>
+<li>
+<a href="#langs" class="accordion-toggle wave-effect waves-effect waves-button" data-toggle="collapse" aria-expanded="false">
+<i class="fas fa-language"></i>Языковые настройки
+</a>
+<ul class="collapse list-unstyled" id="langs" data-parent="#accordion">
+<li><a href="#"><span>Язык сайта</span></a></li>
+<li><a href="#"><span>Язык админки</span></a></li>
+</ul>
+</li>
+<li>
+<a href="#seoTools" class="accordion-toggle wave-effect waves-effect waves-button" data-toggle="collapse" aria-expanded="false">
+<i class="fas fa-wrench"></i>SEO
+</a>
+<ul class="collapse list-unstyled" id="seoTools" data-parent="#accordion">
+<li>
+<a href="#"><span>Популярные товары</span></a>
+</li>
+<li>
+<a href="#"><span>Google Analytics</span></a>
+</li>
+<li>
+<a href="#"><span>Мета слова</span></a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#" class=" wave-effect waves-effect waves-button"><i class="fas fa-users-cog mr-2"></i>Подписчики</a>
+</li>
+<li>
+<a href="#" class=" wave-effect waves-effect waves-button"><i class="fas fa-user-tag"></i>Роли</a>
+</li>
+</ul>
+</nav>
+
+<div class="content-area">
+<div class="row row-cards-one">
+<div class="col-md-12 col-lg-6 col-xl-4">
+<div class="mycard bg1">
+<div class="left">
+<h5 class="title">Заказы к рассмотрению </h5>
+<span class="number">304</span>
+<a href="#pending" class="link">Смотреть</a>
+</div>
+<div class="right d-flex align-self-center">
+<div class="icon">
+<i class="icofont-dollar"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12 col-lg-6 col-xl-4">
+<div class="mycard bg2">
+<div class="left">
+<h5 class="title">Заказы в процессе</h5>
+<span class="number">0</span>
+<a href="#processing" class="link">Смотреть</a>
+</div>
+<div class="right d-flex align-self-center">
+<div class="icon">
+<i class="icofont-truck-alt"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12 col-lg-6 col-xl-4">
+<div class="mycard bg3">
+<div class="left">
+<h5 class="title">Завершенные заказы</h5>
+<span class="number">12</span>
+<a href="#completed" class="link">Смотреть</a>
+</div>
+<div class="right d-flex align-self-center">
+<div class="icon">
+<i class="icofont-check-circled"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12 col-lg-6 col-xl-4">
+<div class="mycard bg4">
+<div class="left">
+<h5 class="title">Итого товаров</h5>
+<span class="number">52</span>
+<a href="#" class="link">Смотреть</a>
+</div>
+<div class="right d-flex align-self-center">
+<div class="icon">
+<i class="icofont-cart-alt"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12 col-lg-6 col-xl-4">
+<div class="mycard bg5">
+<div class="left">
+<h5 class="title">Итого покупателей</h5>
+<span class="number">112</span>
+<a href="#" class="link">Смотреть</a>
+</div>
+<div class="right d-flex align-self-center">
+<div class="icon">
+<i class="icofont-users-alt-5"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12 col-lg-6 col-xl-4">
+<div class="mycard bg6">
+<div class="left">
+<h5 class="title">Итого блогов</h5>
+<span class="number">15</span>
+<a href="#" class="link">Смотреть</a>
+</div>
+<div class="right d-flex align-self-center">
+<div class="icon">
+<i class="icofont-newspaper"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row row-cards-one">
+<div class="col-md-6 col-xl-3">
+<div class="card c-info-box-area">
+<div class="c-info-box box1">
+<p>15</p>
+</div>
+<div class="c-info-box-content">
+<h6 class="title">Новые покупатели</h6>
+<p class="text">Последние 30 дней</p>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xl-3">
+<div class="card c-info-box-area">
+<div class="c-info-box box2">
+<p>112</p>
+</div>
+<div class="c-info-box-content">
+<h6 class="title">Итого покупателей</h6>
+<p class="text">За все время</p>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xl-3">
+<div class="card c-info-box-area">
+<div class="c-info-box box3">
+<p>2</p>
+</div>
+<div class="c-info-box-content">
+<h6 class="title">Продаж</h6>
+<p class="text">За последние 30 дней</p>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xl-3">
+<div class="card c-info-box-area">
+<div class="c-info-box box4">
+<p>12</p>
+</div>
+<div class="c-info-box-content">
+<h6 class="title">Всего продаж</h6>
+<p class="text">За все время</p>
+</div>
+</div>
+</div>
+</div>
+<div class="row row-cards-one">
+<div class="col-md-6 col-lg-6 col-xl-6">
+<div class="card">
+<h5 class="card-header">Недавние заказы</h5>
+<div class="card-body">
+<div class="my-table-responsiv">
+<table class="table table-hover dt-responsive" cellspacing="0" width="100%">
+<thead>
+<tr>
+<th>Номер</th>
+<th>Дата</th>
+</tr>
+<tr>
+<td>XeRpY4vL4p</td>
+<td>2021-05-02</td>
+<td>
+<div class="action-list"><a href="#337/show"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+</tr>
+<tr>
+<td>wMKXrHnt7P</td>
+<td>2021-05-02</td>
+<td>
+<div class="action-list"><a href="#336/show"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+</tr>
+<tr>
+<td>SzLfcbN7tY</td>
+<td>2021-05-01</td>
+<td>
+<div class="action-list"><a href="#335/show"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+</tr>
+<tr>
+<td>by3KTXqRxp</td>
+<td>2021-05-01</td>
+<td>
+<div class="action-list"><a href="#334/show"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+</tr>
+<tr>
+<td>qx8lCvnsbM</td>
+<td>2021-04-30</td>
+<td>
+<div class="action-list"><a href="#333/show"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+</tr>
+</thead>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-lg-6 col-xl-6">
+<div class="card">
+<h5 class="card-header">Недавние покупатели</h5>
+<div class="card-body">
+<div class="my-table-responsiv">
+<table class="table table-hover dt-responsive" cellspacing="0" width="100%">
+<thead>
+<tr>
+<th>Email</th>
+<th>Присоединился</th>
+</tr>
+<tr>
+<td>333@mail.кг</td>
+<td>2021-05-02 13:32:16</td>
+<td>
+<div class="action-list"><a href="#137/show"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+</tr>
+<tr>
+<td>3222@mail.ru</td>
+<td>2021-05-01 01:32:11</td>
+<td>
+<div class="action-list"><a href="#136/show"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+</tr>
+<tr>
+<td>3444@mail.ru</td>
+<td>2021-04-29 03:40:35</td>
+<td>
+<div class="action-list"><a href="#135/show"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+</tr>
+<tr>
+<td>test25@test.ru</td>
+<td>2021-04-22 06:06:22</td>
+<td>
+<div class="action-list"><a href="#134/show"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+</tr>
+<tr>
+<td>9384@mail.ru</td>
+<td>2021-04-22 04:12:01</td>
+<td>
+<div class="action-list"><a href="#133/show"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+</tr>
+</thead>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row row-cards-one">
+<div class="col-md-12 col-lg-12 col-xl-12">
+<div class="card">
+<h5 class="card-header">Популярные товары</h5>
+<div class="card-body">
+<div class="table-responsiv  dashboard-home-table">
+<div id="poproducts_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+    <div class="row btn-area"><div class="col-sm-4"></div>
+    <div class="col-sm-4"></div></div>
+    <div class="row"><div class="col-sm-12">
+        <table id="poproducts" class="table table-hover dt-responsive dataTable no-footer dtr-inline" cellspacing="0" width="100%" role="grid">
+<thead>
+<tr role="row"><th class="sorting_disabled" rowspan="1" colspan="1">Изобравжение</th>
+    <th class="sorting_disabled" rowspan="1" colspan="1">Наименование</th>
+    <th class="sorting_disabled" rowspan="1" colspan="1">Категория</th>
+    <th class="sorting_disabled" rowspan="1" colspan="1">Тип</th>
+    <th class="sorting_disabled" rowspan="1" colspan="1">Цена</th>
+    <th class="sorting_disabled" rowspan="1" colspan="1"></th></tr>
+</thead>
+<tbody>
+
+<tr role="row" class="odd">
+<td tabindex="0"><img src="./admin/1568026368qU5AILZo.png"></td>
+<td>Товар товар 1</td>
+<td>Категория 1
+ <br>
+Категория 2
+<br>
+Категория 3
+</td>
+<td>Обычный</td>
+<td> 100руб </td>
+<td>
+<div class="action-list"><a href="#100"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+</tr><tr role="row" class="even">
+<td tabindex="0"><img src="./admin/1568026368qU5AILZo.png"></td>
+<td>Товар товар 2</td>
+<td>Категория 1
+<br>
+Категория 2
+<br>
+Удалена
+</td>
+<td>Обычный</td>
+<td> 100руб </td>
+<td>
+<div class="action-list"><a href="#95"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+</tr><tr role="row" class="odd">
+<td tabindex="0"><img src="./admin/1568026368qU5AILZo.png"></td>
+<td>Товар товар 3</td>
+<td>Категория 1
+<br>Категория 2
+<br>
+Удалена
+</td>
+<td>Обычный</td>
+<td> 100руб </td>
+<td>
+<div class="action-list"><a href="#101"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+ </tr><tr role="row" class="even">
+<td tabindex="0"><img src="./admin/1568026368qU5AILZo.png"></td>
+<td>Товар товар 4</td>
+<td>Категория 1
+<br>
+Категория 2
+<br>
+Удалена
+</td>
+<td>Обычный</td>
+<td> 100руб </td>
+<td>
+<div class="action-list"><a href="#99"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+</tr><tr role="row" class="odd">
+<td tabindex="0"><img src="./admin/1568026368qU5AILZo.png"></td>
+<td>Товар товар 5</td>
+<td>Категория 1
+<br>
+Категория 2
+<br>
+Удалена
+</td>
+<td>Обычный</td>
+<td> 100руб </td>
+<td>
+<div class="action-list"><a href="#97"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+</tr></tbody>
+</table></div></div><div class="row"><div class="col-sm-12 col-md-5"></div><div class="col-sm-12 col-md-7"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row row-cards-one">
+<div class="col-md-12 col-lg-12 col-xl-12">
+<div class="card">
+<h5 class="card-header">Недавние товары</h5>
+<div class="card-body">
+<div class="table-responsiv dashboard-home-table">
+<div id="pproducts_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer"><div class="row btn-area"><div class="col-sm-4"></div><div class="col-sm-4"></div></div><div class="row"><div class="col-sm-12"><table id="pproducts" class="table table-hover dt-responsive dataTable no-footer dtr-inline" cellspacing="0" width="100%" role="grid">
+<thead>
+<tr role="row"><th class="sorting_disabled" rowspan="1" colspan="1">Изображение</th>
+    <th class="sorting_disabled" rowspan="1" colspan="1">Наименование</th>
+    <th class="sorting_disabled" rowspan="1" colspan="1">Категория</th>
+    <th class="sorting_disabled" rowspan="1" colspan="1">Тип</th>
+    <th class="sorting_disabled" rowspan="1" colspan="1">Цена</th>
+    <th class="sorting_disabled" rowspan="1" colspan="1"></th></tr>
+</thead>
+<tbody>
+<tr role="row" class="odd">
+<td tabindex="0"><img src="./admin/1568026368qU5AILZo.png"></td>
+<td>Товар товар 1</td>
+<td>Категория 1
+<br>
+Категория 2
+<br>
+Удалена
+</td>
+<td>Обычный</td>
+<td> 100руб </td>
+<td>
+<div class="action-list"><a href="#180"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+</tr><tr role="row" class="even">
+<td tabindex="0"><img src="./admin/1568026368qU5AILZo.png"></td>
+<td>Товар товар 2</td>
+<td>Категория 1
+<br>
+Категория 2
+<br>
+Удалена
+</td>
+<td>Обычный</td>
+<td> 100руб </td>
+<td>
+<div class="action-list"><a href="#179"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+</tr><tr role="row" class="odd">
+<td tabindex="0"><img src="./admin/1568026368qU5AILZo.png"></td>
+ <td>Товар товар 3</td>
+<td>Категория 1
+<br>
+Категория 2
+<br>
+Удалена
+</td>
+<td>Обычный</td>
+<td> 100руб </td>
+<td>
+<div class="action-list"><a href="#178"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+</tr><tr role="row" class="even">
+<td tabindex="0"><img src="./admin/1568026368qU5AILZo.png"></td>
+<td>Товар товар 4</td>
+<td>Категория 1
+<br>
+Категория 2
+<br>
+Категория 3
+</td>
+<td>Обычный</td>
+<td> 100руб </td>
+<td>
+<div class="action-list"><a href="#175"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+</tr><tr role="row" class="odd">
+<td tabindex="0"><img src="./admin/1568026368qU5AILZo.png"></td>
+<td>Товар товар 5</td>
+<td>Категория 1
+<br>
+Удалена
+<br>
+Удалена
+</td>
+<td>Обычный</td>
+<td> 100руб </td>
+<td>
+<div class="action-list"><a href="#174"><i class="fas fa-eye"></i> Подробно</a>
+</div>
+</td>
+</tr></tbody>
+</table></div></div><div class="row"><div class="col-sm-12 col-md-5"></div><div class="col-sm-12 col-md-7"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row row-cards-one">
+<div class="col-md-12 col-lg-12 col-xl-12">
+<div class="card">
+<h5 class="card-header">Итого продаж за последние 30 дней</h5>
+<div class="card-body">
+<canvas id="lineChart" width="1340" height="412" style="width: 1340px; height: 412px;"></canvas>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<script type="text/javascript">
+			  var mainurl = "#";
+			  var admin_loader = 1;
+			  var whole_sell = 6;
+			  var getattrUrl = '#';
+			  var curr = {"id":1,"name":"USD","sign":"$","value":"1","is_default":"1"};
+				// console.log(curr);
+			</script>
+
+<script src="./admin/jquery-1.12.4.min.js"></script>
+<script src="./admin/vue.js"></script>
+<script src="./admin/bootstrap.min.js"></script>
+<script src="./admin/jqueryui.min.js"></script>
+
+<script src="./admin/jquery.slimscroll.min.js"></script>
+<script src="./admin/waves.min.js"></script>
+<script src="./admin/plugin.js"></script>
+<script src="./admin/Chart.min.js"></script>
+<script src="./admin/tag-it.js"></script>
+<script src="./admin/nicEdit.js"></script>
+<script src="./admin/bootstrap-colorpicker.min.js"></script>
+<script src="./admin/notify.js"></script>
+<script src="./admin/jquery.canvasjs.min.js"></script>
+<script src="./admin/load.js"></script>
+
+<script src="./admin/custom.js"></script>
+
+<script src="./admin/myscript.js"></script>
+<script language="JavaScript">
+    displayLineChart();
+
+    function displayLineChart() {
+        var data = {
+            labels: [
+            '02 Мая','01 Мая','30 Апр','29 Апр','28 Апр','27 Апр','26 Апр','25 Апр','24 Апр','23 Апр','22 Апр','21 Апр','20 Апр','19 Апр','18 Апр','17 Апр','16 Апр','15 Апр','14 Апр','13 Апр','12 Апр','11 Апр','10 Апр','09 Апр','08 Апр','07 Апр','06 Апр','05 Апр','04 Апр','03 Апр',
+            ],
+            datasets: [{
+                label: "Prime and Fibonacci",
+                fillColor: "#3dbcff",
+                strokeColor: "#0099ff",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: [
+                '0','0','0','0','0','0','1','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',
+                ]
+            }]
+        };
+        var ctx = document.getElementById("lineChart").getContext("2d");
+        var options = {
+            responsive: true
+        };
+        var lineChart = new Chart(ctx).Line(data, options);
+    }
+
+
+    
+</script>
+<script type="text/javascript">
+    $('#poproducts').dataTable( {
+      "ordering": false,
+          'lengthChange': false,
+          'searching'   : false,
+          'ordering'    : false,
+          'info'        : false,
+          'autoWidth'   : false,
+          'responsive'  : true,
+          'paging'  : false
+    } );
+    </script>
+<script type="text/javascript">
+    $('#pproducts').dataTable( {
+      "ordering": false,
+      'lengthChange': false,
+          'searching'   : false,
+          'ordering'    : false,
+          'info'        : false,
+          'autoWidth'   : false,
+          'responsive'  : true,
+          'paging'  : false
+    } );
+    </script>
+<script type="text/javascript">
+        var chart1 = new CanvasJS.Chart("chartContainer-topReference",
+            {
+                exportEnabled: true,
+                animationEnabled: true,
+
+                legend: {
+                    cursor: "pointer",
+                    horizontalAlign: "right",
+                    verticalAlign: "center",
+                    fontSize: 16,
+                    padding: {
+                        top: 20,
+                        bottom: 2,
+                        right: 20,
+                    },
+                },
+                data: [
+                    {
+                        type: "pie",
+                        showInLegend: true,
+                        legendText: "",
+                        toolTipContent: "{name}: <strong>{#percent%} (#percent%)</strong>",
+                        indexLabel: "#percent%",
+                        indexLabelFontColor: "white",
+                        indexLabelPlacement: "inside",
+                        dataPoints: [
+                                                                    {y:15, name: "yandex.ru"},
+                                                                    {y:6, name: "www.google.com"},
+                                                                    {y:6, name: "codecanyon.net"},
+                                                                    {y:5, name: "www.facebook.com"},
+                                                                    {y:2, name: "geniusocean.com"},
+                                                        ]
+                    }
+                ]
+            });
+        chart1.render();
+
+        var chart = new CanvasJS.Chart("chartContainer-os",
+            {
+                exportEnabled: true,
+                animationEnabled: true,
+                legend: {
+                    cursor: "pointer",
+                    horizontalAlign: "right",
+                    verticalAlign: "center",
+                    fontSize: 16,
+                    padding: {
+                        top: 20,
+                        bottom: 2,
+                        right: 20,
+                    },
+                },
+                data: [
+                    {
+                        type: "pie",
+                        showInLegend: true,
+                        legendText: "",
+                        toolTipContent: "{name}: <strong>{#percent%} (#percent%)</strong>",
+                        indexLabel: "#percent%",
+                        indexLabelFontColor: "white",
+                        indexLabelPlacement: "inside",
+                        dataPoints: [
+                                                            {y:1185, name: "Windows 10"},
+                                                            {y:536, name: "Windows 8.1"},
+                                                            {y:502, name: "Mac OS X"},
+                                                            {y:415, name: "Windows 7"},
+                                                            {y:384, name: "Unknown OS Platform"},
+                                                    ]
+                    }
+                ]
+            });
+        chart.render();    
+</script><span style="position: absolute; left: 0px; top: -20000px; padding: 0px; margin: 0px; border: none; white-space: pre; line-height: normal; font-family: &quot;Trebuchet MS&quot;, Helvetica, sans-serif; font-size: 14px; font-weight: normal; display: none;">Mpgyi</span>
+<style>
+    .action-list a {
+    width: 130px;
+}
+    </style>
+
+</body></html>

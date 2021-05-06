@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Макет Пользовательская панель</title>
+<link rel="stylesheet" href="./resource/all.css">
+<link rel="stylesheet" href="./resource/styles.css">
+<style>
+.lazy-x {
+    -webkit-animation: sharp 5s; /* Chrome, Safari, Opera */
+    animation: sharp 0.5s;
+}
+
+@-webkit-keyframes sharp {
+    from {-webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);}
+    to {-webkit-filter: none;
+  -moz-filter: none;
+  -o-filter: none;
+  -ms-filter: none;
+  filter: none;}
+}
+
+@keyframes  sharp {
+     from {-webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);}
+    to {-webkit-filter: none;
+  -moz-filter: none;
+  -o-filter: none;
+  -ms-filter: none;
+  filter: none;}
+}
+</style>
+</head>
+<body>
+<section class="top-header">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 remove-padding">
+<div class="content">
+<div class="left-content">
+<div class="list">
+<ul>
+<li>
+<div class="language-selector">
+<i class="fas fa-globe-americas"></i>
+<select name="language" class="language selectors nice">
+ <option value="en">English</option>
+ <option value="ru" selected="">Русский</option>
+ <option value="ch">中文</option>
+</select>
+<div class="nice-select language selectors nice" tabindex="0">
+    <span class="current">Русский</span>
+    <ul class="list">
+        <li data-value="en" class="option">English</li>
+        <li data-value="ru" class="option selected">Русский</li>
+        <li data-value="ch" class="option">中文</li>
+    </ul>
+</div>
+</div>
+</li>
+<li>
+<div class="currency-selector">
+<span></span>
+<select name="currency" class="currency selectors nice" style="display: none;">
+<option value="usd">USD</option>
+<option value="eur">EUR</option>
+<option value="rub" selected="">RUB</option>
+</select>
+<div class="nice-select currency selectors nice" tabindex="0">
+    <span class="current">RUB</span>
+    <ul class="list">
+        <li data-value="#" class="option">USD</li>
+        <li data-value="#" class="option">EUR</li>
+        <li data-value="#" class="option selected">RUB</li>
+    </ul></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="right-content">
+<div class="list">
+<ul>
+<li class="login">
+<a href="#" class="sign-log">
+<div class="links">
+<span class="sign-in">Войти</span> <span>|</span>
+<span class="join">Присоединиться</span>
+</div>
+</a>
+</li>
+<li>
+</li><li>
+<a href="javascript:;" data-toggle="modal" data-target="#vendor-login" class="sell-btn">Начать продавать</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="logo-header">
+<div class="container">
+<div class="row ">
+<div class="col-lg-2 col-sm-6 col-5 remove-padding">
+<div class="logo">
+<a href="#">
+<img src="./resource/1571567292logo.png" alt="">
+</a>
+</div>
+</div>
+<div class="col-lg-8 col-sm-12 remove-padding order-last order-sm-2 order-md-2">
+<div class="search-box-wrapper">
+<div class="search-box">
+<div class="categori-container" id="catSelectForm">
+<select name="category" id="category_select" class="categoris">
+<option value="">Категории</option>
+<option value="accessories">Категория1</option>
+<option value="Beauty">Категория2</option>
+<option value="Bags">Категория3</option>
+<option value="Shoes">Категория4</option>
+<option value="Jewellery">Категория5</option>
+<option value="T-shirt-and-Tops">Категория6</option>
+<option value="Shorts">Категория7</option>
+<option value="Shirts">Категория8</option>
+</select>
+</div>
+<form id="searchForm" class="search-form" action="#" method="GET">
+<input type="text" id="prod_name" name="search" placeholder="Поиск" value="" autocomplete="off">
+<div class="autocomplete" style="display: none;">
+<div id="myInputautocomplete-list" class="autocomplete-items">
+</div>
+</div>
+<button type="submit"><i class="icofont-search-1"></i></button>
+</form>
+</div>
+</div>
+</div>
+<div class="col-lg-2 col-sm-6 col-7 remove-padding order-lg-last">
+<div class="helpful-links">
+<ul class="helpful-links-inner">
+<li class="my-dropdown" data-toggle="tooltip" data-placement="top" title="" data-original-title="Корзина">
+<a href="javascript:;" class="cart carticon">
+<div class="icon">
+<i class="icofont-cart"></i>
+<span class="cart-quantity" id="cart-count">0</span>
+</div>
+</a>
+<div class="my-dropdown-menu" id="cart-items">
+<p class="mt-1 pl-3 text-left">Корзина пуста</p>
+</div>
+</li>
+<li class="wishlist" data-toggle="tooltip" data-placement="top" title="" data-original-title="Избранное">
+<a href="javascript:;" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" class="wish">
+<i class="far fa-heart"></i>
+<span id="wishlist-count">0</span>
+</a>
+</li>
+<li class="compare" data-toggle="tooltip" data-placement="top" title="" data-original-title="Сравнить">
+<a href="#" class="wish compare-product">
+<div class="icon">
+<i class="fas fa-exchange-alt"></i>
+<span id="compare-count">0</span>
+</div>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<div class="mainmenu-area mainmenu-bb nav-fixed">
+<div class="container">
+<div class="row align-items-center mainmenu-area-innner">
+<div class="col-lg-3 col-md-6 categorimenu-wrapper remove-padding">
+
+<div class="categories_menu">
+<div class="categories_title">
+<h2 class="categori_toggle"><i class="fa fa-bars"></i> Категории <i class="fa fa-angle-down arrow-down"></i></h2>
+</div>
+<div class="categories_menu_inner" style="display: none;">
+<ul>
+<li class="dropdown_list ">
+<div class="img">
+<img src="./resource/1615871668eyeglasses.png" alt="">
+</div>
+<div class="link-area">
+<span><a href="#">Категория1</a></span>
+<a href="javascript:;">
+<i class="fa fa-angle-right" aria-hidden="true"></i>
+</a>
+</div>
+<ul class="categories_mega_menu column_1">
+<li>
+<a href="#">Категория товаров 1</a>
+</li>
+<li>
+<a href="#">Категория товаров 2</a>
+</li>
+<li>
+<a href="#">Категория товаров 3</a>
+</li>
+</ul>
+</li>
+<li class="dropdown_list ">
+<div class="img">
+<img src="./resource/1615871704makeover.png" alt="">
+</div>
+<div class="link-area">
+<span><a href="#">Категория2</a></span>
+<a href="javascript:;">
+<i class="fa fa-angle-right" aria-hidden="true"></i>
+</a>
+</div>
+<ul class="categories_mega_menu column_1">
+<li>
+<a href="#">Категория товаров 1</a>
+</li>
+<li>
+<a href="#">Категория товаров 2</a>
+</li>
+<li>
+<a href="#">Категория товаров 3</a>
+ </li>
+<li>
+<a href="#">Категория товаров 4</a>
+</li>
+</ul>
+</li>
+<li class="dropdown_list ">
+<div class="img">
+<img src="./resource/1615871740bag.png" alt="">
+</div>
+<div class="link-area">
+<span><a href="#">Категория3</a></span>
+<a href="javascript:;">
+<i class="fa fa-angle-right" aria-hidden="true"></i>
+</a>
+</div>
+<ul class="categories_mega_menu column_1">
+<li>
+<a href="#">Категория товаров 1</a>
+</li>
+<li>
+<a href="#">Категория товаров 2</a>
+</li>
+<li>
+<a href="#">Категория товаров 3</a>
+</li>
+</ul>
+</li>
+<li class="dropdown_list ">
+<div class="img">
+<img src="./resource/1615871775high-heels.png" alt="">
+</div>
+<div class="link-area">
+<span><a href="#">Категория 4</a></span>
+<a href="javascript:;">
+<i class="fa fa-angle-right" aria-hidden="true"></i>
+</a>
+</div>
+<ul class="categories_mega_menu column_1">
+<li>
+<a href="#">Категория товаров 1</a>
+</li>
+<li>
+<a href="#">Категория товаров 2</a>
+</li>
+<li>
+<a href="#">Категория товаров 3</a>
+</li>
+</ul>
+</li>
+<li class="dropdown_list ">
+<div class="img">
+<img src="./resource/1615871819gems.png" alt="">
+</div>
+<div class="link-area">
+<span><a href="#">Категория 5</a></span>
+<a href="javascript:;">
+<i class="fa fa-angle-right" aria-hidden="true"></i>
+</a>
+</div>
+<ul class="categories_mega_menu column_1">
+<li>
+<a href="#">Категория товаров 1</a>
+</li>
+<li>
+<a href="#">Категория товаров 2</a>
+</li>
+<li>
+<a href="#">Категория товаров 3</a>
+</li>
+</ul>
+</li>
+<li class=" ">
+<a href="#"><img src="./resource/1615871846jeans.png"> Категория 6</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class="col-lg-9 col-md-6 mainmenu-wrapper remove-padding">
+<nav class="core-nav"><div class="full-container">
+<div class="nav-header right">
+<button class="toggle-bar core-nav-toggle"><span class="fa fa-bars"></span></button>
+</div>
+<div class="wrap-core-nav-list right"><ul class="menu core-nav-list">
+<li><a href="#">Чаво</a></li>
+<li><a href="#">О нас</a></li>
+<li><a href="#">Контакты</a></li>
+<li>
+<a href="javascript:;" data-toggle="modal" data-target="#track-order-modal" class="track-btn">Отслеживание</a>
+</li>
+</ul></div>
+</div></nav><div class="dropdown-overlay"></div>
+</div>
+</div>
+</div>
+</div>
+
+<style type="text/css">
+
+        @media  only screen and (max-width: 767px) {
+
+        
+                .subtitle9{
+                    font-size:12px!important;
+                }
+
+                .title9{
+                    font-size:30px!important;
+                }
+                .details9{
+                    font-size:12px!important;
+                }
+                .subtitle10{
+                    font-size:12px!important;
+                }
+
+                .title10{
+                    font-size:30px!important;
+                }
+                .details10{
+                    font-size:12px!important;
+                }
+
+                }
+
+        @media  only screen and (Минут-width: 768px) and (max-width: 991px) {
+
+        
+                .subtitle9{
+                    font-size:16.8px!important;
+                }
+
+                .title9{
+                    font-size:42px!important;
+                }
+                .details9{
+                    font-size:11.2px!important;
+                }
+
+                
+                .subtitle10{
+                    font-size:16.8px!important;
+                }
+
+                .title10{
+                    font-size:42px!important;
+                }
+                .details10{
+                    font-size:11.2px!important;
+                }
+
+                }
+
+    </style>
+<section class="user-dashbord">
+<div class="container">
+<div class="row">
+<div class="col-lg-4">
+<div class="user-profile-info-area">
+<ul class="links">
+<li class="">
+<a href="#">
+Главная
+</a>
+</li>
+<li>
+<a href="#">
+Панель вендора
+</a>
+</li>
+<li class="">
+<a href="#">
+Заказы
+</a>
+</li>
+<li class="">
+<a href="#">Партнерский код</a>
+</li>
+<li class="">
+<a href="#">Выручка</a>
+</li>
+<li class="">
+<a href="#">Отслеживание</a>
+</li>
+<li class="">
+<a href="#">Любимые продавцы</a>
+</li>
+<li class="">
+<a href="#">Сообщения</a>
+</li>
+<li class="">
+<a href="#">Обращения</a>
+</li>
+<li class="">
+<a href="#">Обсуждения</a>
+</li>
+<li class="">
+<a href="#">
+Редактировать профиль
+</a>
+</li>
+<li class="">
+<a href="#">
+Сброс пароля
+</a>
+</li>
+<li>
+<a href="#">
+Выход
+</a>
+</li>
+</ul>
+</div>
+<div class="row mt-4">
+<div class="col-lg-12 text-center">
+<a href="#" class="mybtn1 lg"> Ценовые планы
+</a>
+</div>
+</div>
+</div> <div class="col-lg-8">
+<div class="row mb-3">
+<div class="col-lg-6">
+<div class="user-profile-details">
+<div class="account-info">
+<div class="header-area">
+<h4 class="title">
+Основная информация
+</h4>
+</div>
+<div class="edit-info-area">
+</div>
+<div class="main-info">
+<ul class="list">
+<li>
+<p><span class="user-title">Email:</span> user@gmail.com</p>
+</li>
+<li>
+<p><span class="user-title">Телефон:</span> 34534534534</p>
+</li>
+<li>
+<p><span class="user-title">Город:</span> Москва</p>
+</li>
+<li>
+<p><span class="user-title">Почтовый код:</span> 127001</p>
+</li>
+<li>
+<p><span class="user-title">Адрес:</span> Тестовый адрес</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="user-profile-details h100">
+<div class="account-info wallet h100">
+<div class="header-area">
+<h4 class="title">
+Баланс
+</h4>
+</div>
+<div class="edit-info-area">
+</div>
+<div class="main-info">
+<h3 class="title w-price">Продаж: 10000000 руб</h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row row-cards-one mb-3">
+<div class="col-md-6 col-xl-6">
+<div class="card c-info-box-area">
+<div class="c-info-box box2">
+<p>11</p>
+</div>
+<div class="c-info-box-content">
+<h6 class="title">Всего заказов</h6>
+<p class="text">За все время</p>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xl-6">
+<div class="card c-info-box-area">
+<div class="c-info-box box1">
+<p>174</p>
+</div>
+<div class="c-info-box-content">
+<h6 class="title">Заказы в процессе</h6>
+<p class="text">За все время</p>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+<div class="user-profile-details">
+<div class="account-info wallet">
+<div class="header-area">
+<h4 class="title">
+Последние заказы
+</h4>
+</div>
+<div class="edit-info-area">
+</div>
+<div class="main-info">
+<div class="mr-table allproduct mt-4">
+<div class="table-responsiv">
+<div id="example_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+    <div class="row">
+        <div class="col-sm-12">
+            <table id="example" class="table table-hover dt-responsive dataTable no-footer dtr-inline" cellspacing="0" width="100%" role="grid" aria-describedby="example_info" style="width: 100%;">
+<thead>
+<tr role="row"><th class="sorting_disabled" rowspan="1" colspan="1" style="width: 82px;">№ заказа</th>
+    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 83px;">Дата</th>
+    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 93px;">Итого</th>
+    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 107px;">Статус</th>
+    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 123px;">Просмотр</th></tr>
+</thead>
+<tbody>
+<tr role="row" class="odd">
+<td tabindex="0">
+XeRpY4vL4p
+</td>
+<td>
+02 мая 2021
+</td>
+<td>
+100руб
+</td>
+<td>
+<div class="order-status pending">
+В процессе
+</div>
+</td>
+ <td>
+<a class="mybtn2 sm" href="#">
+Посмотреть
+</a>
+</td>
+</tr><tr role="row" class="even">
+<td tabindex="0">
+wMKXrHnt7P
+</td>
+<td>
+02 мая 2021
+</td>
+<td>
+100руб
+</td>
+<td>
+<div class="order-status pending">
+В процессе
+</div>
+</td>
+<td>
+<a class="mybtn2 sm" href="#">
+Посмотреть
+</a>
+</td>
+</tr><tr role="row" class="odd">
+<td tabindex="0">
+SzLfcbN7tY
+</td>
+<td>
+01 мая 2021
+</td>
+<td>
+100руб
+</td>
+<td>
+<div class="order-status pending">
+В процессе
+</div>
+</td>
+<td>
+<a class="mybtn2 sm" href="#">
+Посмотреть
+</a>
+</td>
+</tr><tr role="row" class="even">
+<td tabindex="0">
+qx8lCvnsbM
+</td>
+<td>
+30 апреля 2021
+</td>
+<td>
+100руб
+</td>
+<td>
+<div class="order-status pending">
+В процессе
+</div>
+</td>
+<td>
+<a class="mybtn2 sm" href="#">
+Посмотреть
+</a>
+</td>
+</tr><tr role="row" class="odd">
+<td tabindex="0">
+G6pLAndxtW
+</td>
+<td>
+29 апреля 2021
+</td>
+<td>
+100руб
+</td>
+<td>
+<div class="order-status pending">
+В процессе
+</div>
+</td>
+<td>
+<a class="mybtn2 sm" href="#">
+Посмотреть
+</a>
+</td>
+</tr></tbody>
+</table></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="footer" id="footer">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-6 col-lg-4">
+    <div class="footer-info-area">
+    <div class="footer-logo">
+    <a href="#" class="logo-link">
+    <img src="./resource/1571567309footers.png" alt="">
+    </a>
+    </div>
+    <div class="text">
+    <p>
+    Здесь будет текст, однозначно характеризующий магазин Здесь будет текст, однозначно характеризующий магазинЗдесь будет текст, однозначно характеризующий магазинЗдесь будет текст, однозначно характеризующий магазинЗдесь будет текст, однозначно характеризующий магазинЗдесь будет текст, однозначно характеризующий магазинЗдесь будет текст, однозначно характеризующий магазин
+    </p>
+    </div>
+    </div>
+    <div class="fotter-social-links">
+    <ul>
+    <li>
+    <a href="https://www.facebook.com/" class="facebook" target="_blank">
+    <i class="fab fa-facebook-f"></i>
+    </a>
+    </li>
+    <li>
+    <a href="https://ok.ru/" class="ok" target="_blank">
+    <i class="fab fa-odnoklassniki"></i>
+    </a>
+    </li>
+    <li>
+    <a href="https://twitter.com/" class="twitter" target="_blank">
+    <i class="fab fa-twitter"></i>
+    </a>
+    </li>
+    <li>
+    <a href="https://www.linkedin.com/" class="linkedin" target="_blank">
+    <i class="fab fa-linkedin-in"></i>
+    </a>
+    </li>
+    <li>
+    <a href="https://vk.ru/" class="vk" target="_blank">
+    <i class="fab fa-vk"></i>
+    </a>
+    </li>
+    </ul>
+    </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+    <div class="footer-widget info-link-widget">
+    <h4 class="title">
+    Полезные ссылки
+    </h4>
+    <ul class="link-list">
+    <li>
+    <a href="#">
+    <i class="fas fa-angle-double-right"></i>Главная
+    </a>
+    </li>
+    <li>
+    <a href="#">
+    <i class="fas fa-angle-double-right"></i>Политика безопасности
+    </a>
+    </li>
+    <li>
+    <a href="#">
+    <i class="fas fa-angle-double-right"></i>Полезная информация
+    </a>
+    </li>
+    <li>
+    <a href="#">
+    <i class="fas fa-angle-double-right"></i>Написать нам
+    </a>
+    </li>
+    </ul>
+    </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+    <div class="footer-widget recent-post-widget">
+    <h4 class="title">
+    Блогосфера
+    </h4>
+    <ul class="post-list">
+    <li>
+    <div class="post">
+    <div class="post-img">
+    <img style="width: 73px; height: 59px;" src="./resource/15542698954-Min.jpg" alt="">
+    </div>
+    <div class="post-details">
+    <a href="#">
+    <h4 class="post-title">
+    Блог 1
+    </h4>
+    </a>
+    <p class="date">
+    Дата
+    </p>
+    </div>
+    </div>
+    </li>
+    <li>
+    <div class="post">
+    <div class="post-img">
+    <img style="width: 73px; height: 59px;" src="./resource/15542698954-Min.jpg" alt="">
+    </div>
+    <div class="post-details">
+    <a href="#">
+    <h4 class="post-title">
+    Блог 2
+    </h4>
+    </a>
+    <p class="date">
+    Дата
+    </p>
+    </div>
+    </div>
+    </li>
+    <li>
+    <div class="post">
+    <div class="post-img">
+    <img style="width: 73px; height: 59px;" src="./resource/15542698954-Min.jpg" alt="">
+    </div>
+    <div class="post-details">
+    <a href="#">
+    <h4 class="post-title">
+    Блог 3
+    </h4>
+    </a>
+    <p class="date">
+    Дата
+    </p>
+    </div>
+    </div>
+    </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="copy-bg">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="content">
+    <div class="content">
+    <p> Все права защищены © 2021</a></p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </footer>
+
+
+<div class="bottomtotop">
+<i class="fas fa-chevron-right"></i>
+</div>
+
+<div class="modal fade" id="comment-log-reg" tabindex="-1" role="dialog" aria-labelledby="comment-log-reg-Title" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">×</span>
+    </button>
+    </div>
+    <div class="modal-body">
+    <nav class="comment-log-reg-tabmenu core-nav"><div class="full-container">
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link login active" id="nav-log-tab1" data-toggle="tab" href="#nav-log1" role="tab" aria-controls="nav-log" aria-selected="true">
+    Войти
+    </a>
+    <a class="nav-item nav-link" id="nav-reg-tab1" data-toggle="tab" href="#nav-reg1" role="tab" aria-controls="nav-reg" aria-selected="false">
+    Регистрация
+    </a>
+    </div>
+    </div></nav><div class="dropdown-overlay"></div>
+    <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-log1" role="tabpanel" aria-labelledby="nav-log-tab1">
+    <div class="login-area">
+    <div class="header-area">
+    <h4 class="title">Войти</h4>
+    </div>
+    <div class="login-form signin-form">
+    <div class="alert alert-info validation" style="display: none;">
+    <p class="text-left"></p>
+    </div>
+    <div class="alert alert-success validation" style="display: none;">
+    <button type="button" class="close alert-close"><span>×</span></button>
+    <p class="text-left"></p>
+    </div>
+    <div class="alert alert-danger validation" style="display: none;">
+    <button type="button" class="close alert-close"><span>×</span></button>
+    <p class="text-left"></p>
+    </div> <form class="mloginform" action="#" method="POST">
+    <input type="hidden" name="_token" value="s7qQfo6z233kitxUrVAW03iFDkH7wmuPMg2fgcbB">
+    <div class="form-input">
+    <input type="email" name="email" placeholder="Введите email" required="">
+    <i class="icofont-user-alt-5"></i>
+    </div>
+    <div class="form-input">
+    <input type="password" class="Password" name="password" placeholder="Введите пароль" required="">
+    <i class="icofont-ui-password"></i>
+    </div>
+    <div class="form-forgot-pass">
+    <div class="left">
+    <input type="checkbox" name="remember" id="mrp">
+    <label for="mrp">Запомнить пароль</label>
+    </div>
+    <div class="right">
+    <a href="javascript:;" id="show-forgot">
+    Забыли пароль?
+    </a>
+    </div>
+    </div>
+    <input type="hidden" name="modal" value="1">
+    <input class="mauthdata" type="hidden" value="Аутентификация...">
+    <button type="submit" class="submit-btn">Вход</button>
+    <div class="social-area">
+    <h3 class="title">или</h3>
+    <p class="text">Войти с помощью социальных сетей</p>
+    <ul class="social-links">
+    <li>
+    <a href="#">
+    <i class="fab fa-facebook-f"></i>
+    </a>
+    </li>
+    <li>
+    <a href="#">
+    <i class="fab fa-vk"></i>
+    </a>
+    </li>
+    <li>
+        <a href="#">
+        <i class="fab fa-odnoklassniki"></i>
+        </a>
+        </li>    
+    </ul>
+    </div>
+    </form>
+    </div>
+    </div>
+    </div>
+    <div class="tab-pane fade" id="nav-reg1" role="tabpanel" aria-labelledby="nav-reg-tab1">
+    <div class="login-area signup-area">
+    <div class="header-area">
+    <h4 class="title">Войти</h4>
+    </div>
+    <div class="login-form signup-form">
+    <div class="alert alert-info validation" style="display: none;">
+    <p class="text-left"></p>
+    </div>
+    <div class="alert alert-success validation" style="display: none;">
+    <button type="button" class="close alert-close"><span>×</span></button>
+    <p class="text-left"></p>
+    </div>
+    <div class="alert alert-danger validation" style="display: none;">
+    <button type="button" class="close alert-close"><span>×</span></button>
+    <p class="text-left"></p>
+    </div> <form class="mregisterform" action="#" method="POST">
+    <input type="hidden" name="_token" value="s7qQfo6z233kitxUrVAW03iFDkH7wmuPMg2fgcbB">
+    <div class="form-input">
+    <input type="text" class="User Name" name="name" placeholder="Полное имя" required="">
+    <i class="icofont-user-alt-5"></i>
+    </div>
+    <div class="form-input">
+    <input type="email" class="User Name" name="email" placeholder="Email" required="">
+    <i class="icofont-email"></i>
+    </div>
+    <div class="form-input">
+    <input type="text" class="User Name" name="phone" placeholder="Телефон" required="">
+    <i class="icofont-phone"></i>
+    </div>
+    <div class="form-input">
+    <input type="text" class="User Name" name="address" placeholder="Адрес" required="">
+    <i class="icofont-location-pin"></i>
+    </div>
+    <div class="form-input">
+    <input type="password" class="Password" name="password" placeholder="Пароль" required="">
+    <i class="icofont-ui-password"></i>
+    </div>
+    <div class="form-input">
+    <input type="password" class="Password" name="password_confirmation" placeholder="Подтвердить пароль" required="">
+    <i class="icofont-ui-password"></i>
+    </div>
+    <ul class="captcha-area">
+    <li>
+    <p><img class="codeimg1" src="./resource/capcha_code.png" alt=""> <i class="fas fa-sync-alt pointer refresh_code "></i></p>
+    </li>
+    </ul>
+    <div class="form-input">
+    <input type="text" class="Password" name="codes" placeholder="Введите код" required="">
+    <i class="icofont-refresh"></i>
+    </div>
+    <input class="mprocessdata" type="hidden" value="Процесс...">
+    <button type="submit" class="submit-btn">Регистрация</button>
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    
+    <div class="modal fade" id="forgot-modal" tabindex="-1" role="dialog" aria-labelledby="comment-log-reg-Title" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">×</span>
+    </button>
+    </div>
+    <div class="modal-body">
+    <div class="login-area">
+    <div class="header-area forgot-passwor-area">
+    <h4 class="title">Забыли пароль? </h4>
+    <p class="text">Введите email </p>
+    </div>
+    <div class="login-form">
+    <div class="alert alert-info validation" style="display: none;">
+    <p class="text-left"></p>
+    </div>
+    <div class="alert alert-success validation" style="display: none;">
+    <button type="button" class="close alert-close"><span>×</span></button>
+    <p class="text-left"></p>
+    </div>
+    <div class="alert alert-danger validation" style="display: none;">
+    <button type="button" class="close alert-close"><span>×</span></button>
+    <p class="text-left"></p>
+    </div> <form id="mforgotform" action="#" method="POST">
+    <input type="hidden" name="_token" value="s7qQfo6z233kitxUrVAW03iFDkH7wmuPMg2fgcbB">
+    <div class="form-input">
+    <input type="email" name="email" class="User Name" placeholder="Ввод email" required="">
+    <i class="icofont-user-alt-5"></i>
+    </div>
+    <div class="to-login-page">
+    <a href="javascript:;" id="show-login">
+    Войти
+    </a>
+    </div>
+    <input class="fauthdata" type="hidden" value="Проверяю...">
+    <button type="submit" class="submit-btn">Отправить</button>
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    
+    <div class="modal fade" id="vendor-login" tabindex="-1" role="dialog" aria-labelledby="vendor-login-Title" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered" style="transition: .5s;" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">×</span>
+    </button>
+    </div>
+    <div class="modal-body">
+    <nav class="comment-log-reg-tabmenu core-nav"><div class="full-container">
+    <div class="nav nav-tabs" id="nav-tab1" role="tablist">
+    <a class="nav-item nav-link login active" id="nav-log-tab11" data-toggle="tab" href="#nav-log11" role="tab" aria-controls="nav-log" aria-selected="true">
+    Вход для поставщика
+    </a>
+    <a class="nav-item nav-link" id="nav-reg-tab11" data-toggle="tab" href="#nav-reg11" role="tab" aria-controls="nav-reg" aria-selected="false">
+    Регистрация магазина
+    </a>
+    </div>
+    </div></nav><div class="dropdown-overlay"></div>
+    <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-log11" role="tabpanel" aria-labelledby="nav-log-tab">
+    <div class="login-area">
+    <div class="login-form signin-form">
+    <div class="alert alert-info validation" style="display: none;">
+    <p class="text-left"></p>
+    </div>
+    <div class="alert alert-success validation" style="display: none;">
+    <button type="button" class="close alert-close"><span>×</span></button>
+    <p class="text-left"></p>
+    </div>
+    <div class="alert alert-danger validation" style="display: none;">
+    <button type="button" class="close alert-close"><span>×</span></button>
+    <p class="text-left"></p>
+    </div> <form class="mloginform" action="#" method="POST">
+    <input type="hidden" name="_token" value="s7qQfo6z233kitxUrVAW03iFDkH7wmuPMg2fgcbB">
+    <div class="form-input">
+    <input type="email" name="email" placeholder="Введите Email" required="">
+    <i class="icofont-user-alt-5"></i>
+    </div>
+    <div class="form-input">
+    <input type="password" class="Password" name="password" placeholder="Введите пароль" required="">
+    <i class="icofont-ui-password"></i>
+    </div>
+    <div class="form-forgot-pass">
+    <div class="left">
+    <input type="checkbox" name="remember" id="mrp1">
+    <label for="mrp1">Запомнить пароль</label>
+    </div>
+    <div class="right">
+    <a href="javascript:;" id="show-forgot1">
+    Забыли пароль?
+    </a>
+    </div>
+    </div>
+    <input type="hidden" name="modal" value="1">
+    <input type="hidden" name="vendor" value="1">
+    <input class="mauthdata" type="hidden" value="Аутентификация...">
+    <button type="submit" class="submit-btn">Вход</button>
+    <div class="social-area">
+    <h3 class="title">или</h3>
+    <p class="text">Вход с использованием социальных сетей</p>
+    <ul class="social-links">
+    <li>
+    <a href="#">
+    <i class="fab fa-facebook-f"></i>
+    </a>
+    </li>
+    </ul>
+    </div>
+    </form>
+    </div>
+    </div>
+    </div>
+    <div class="tab-pane fade" id="nav-reg11" role="tabpanel" aria-labelledby="nav-reg-tab">
+    <div class="login-area signup-area">
+    <div class="login-form signup-form">
+    <div class="alert alert-info validation" style="display: none;">
+    <p class="text-left"></p>
+    </div>
+    <div class="alert alert-success validation" style="display: none;">
+    <button type="button" class="close alert-close"><span>×</span></button>
+    <p class="text-left"></p>
+    </div>
+    <div class="alert alert-danger validation" style="display: none;">
+    <button type="button" class="close alert-close"><span>×</span></button>
+    <p class="text-left"></p>
+    </div> <form class="mregisterform" action="#" method="POST">
+    <input type="hidden" name="_token" value="s7qQfo6z233kitxUrVAW03iFDkH7wmuPMg2fgcbB">
+    <div class="row">
+    <div class="col-lg-6">
+    <div class="form-input">
+    <input type="text" class="User Name" name="name" placeholder="Полное имя" required="">
+    <i class="icofont-user-alt-5"></i>
+    </div>
+    </div>
+    <div class="col-lg-6">
+    <div class="form-input">
+    <input type="email" class="User Name" name="email" placeholder="Введите Email" required="">
+    <i class="icofont-email"></i>
+    </div>
+    </div>
+    <div class="col-lg-6">
+    <div class="form-input">
+    <input type="text" class="User Name" name="phone" placeholder="Телефон" required="">
+    <i class="icofont-phone"></i>
+    </div>
+    </div>
+    <div class="col-lg-6">
+    <div class="form-input">
+    <input type="text" class="User Name" name="address" placeholder="Адрес" required="">
+    <i class="icofont-location-pin"></i>
+    </div>
+    </div>
+    <div class="col-lg-6">
+    <div class="form-input">
+    <input type="text" class="User Name" name="shop_name" placeholder="Название магазина" required="">
+    <i class="icofont-cart-alt"></i>
+    </div>
+    </div>
+    <div class="col-lg-6">
+    <div class="form-input">
+    <input type="text" class="User Name" name="owner_name" placeholder="Владелец" required="">
+    <i class="icofont-cart"></i>
+    </div>
+    </div>
+    <div class="col-lg-6">
+    <div class="form-input">
+    <input type="text" class="User Name" name="shop_number" placeholder="Номер магазина" required="">
+    <i class="icofont-shopping-cart"></i>
+    </div>
+    </div>
+    <div class="col-lg-6">
+    <div class="form-input">
+    <input type="text" class="User Name" name="shop_address" placeholder="Адрес магазина" required="">
+    <i class="icofont-opencart"></i>
+    </div>
+    </div>
+    <div class="col-lg-6">
+    <div class="form-input">
+    <input type="text" class="User Name" name="reg_number" placeholder="Номер регистрации" required="">
+    <i class="icofont-ui-cart"></i>
+    </div>
+    </div>
+    <div class="col-lg-6">
+    <div class="form-input">
+    <input type="text" class="User Name" name="shop_message" placeholder="Сообщение" required="">
+    <i class="icofont-envelope"></i>
+    </div>
+    </div>
+    <div class="col-lg-6">
+    <div class="form-input">
+    <input type="password" class="Password" name="password" placeholder="Пароль" required="">
+    <i class="icofont-ui-password"></i>
+    </div>
+    </div>
+    <div class="col-lg-6">
+    <div class="form-input">
+    <input type="password" class="Password" name="password_confirmation" placeholder="Подтверждение" required="">
+    <i class="icofont-ui-password"></i>
+    </div>
+    </div>
+    <div class="col-lg-6">
+    <ul class="captcha-area">
+    <li>
+    <p>
+    <img class="codeimg1" src="./resource/capcha_code.png" alt=""> <i class="fas fa-sync-alt pointer refresh_code "></i>
+    </p>
+    </li>
+    </ul>
+    </div>
+    <div class="col-lg-6">
+    <div class="form-input">
+    <input type="text" class="Password" name="codes" placeholder="Ввести код" required="">
+    <i class="icofont-refresh"></i>
+    </div>
+    </div>
+    <input type="hidden" name="vendor" value="1">
+    <input class="mprocessdata" type="hidden" value="Processing...">
+    <button type="submit" class="submit-btn">Регистрация</button>
+    </div>
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    
+    <div class="modal fade" id="quickview" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog quickview-modal modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+    <div class="submit-loader">
+    <img src="./resource/1564224328loading3.gif" alt="">
+    </div>
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">×</span>
+    </button>
+    </div>
+    <div class="modal-body">
+    <div class="container quick-view-modal">
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    
+    <div class="modal fade" id="track-order-modal" tabindex="-1" role="dialog" aria-labelledby="order-tracking-modal" aria-hidden="true">
+    <div class="modal-dialog  modal-lg" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h6 class="modal-title"> <b>Отслеживание заказа</b> </h6>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">×</span>
+    </button>
+    </div>
+    <div class="modal-body">
+    <div class="order-tracking-content">
+    <form id="track-form" class="track-form">
+    <input type="hidden" name="_token" value="s7qQfo6z233kitxUrVAW03iFDkH7wmuPMg2fgcbB">
+    <input type="text" id="track-code" placeholder="Введите код заказа" required="">
+    <button type="submit" class="mybtn1">Отслеживание</button>
+    <a href="#" data-toggle="modal" data-target="#order-tracking-modal"></a>
+    </form>
+    </div>
+    <div>
+    <!--<div class="submit-loader d-none">
+    <img src="./resource/1564224328loading3.gif" alt="">
+    </div>-->
+    <div id="track-order">
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    <script type="text/javascript">
+      var mainurl = "#";
+      var gs      = {"id":1,"logo":"1571567292logo.png","favicon":"1571567283favicon.png","title":"Корзина","header_email":"smtp","header_phone":"0123 456789","footer":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae","copyright":"Все права защищены <a href=\"#<\/a>","colors":"#e91e63","loader":"1564224328loading3.gif","adMin_loader":"1564224329loading3.gif","is_talkto":"0","talkto":"<script type=\"text\/javascript\">\r\nvar Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();\r\n(function(){\r\nvar s1=document.createElement(\"script\"),s0=document.getElementsByTagName(\"script\")[0];\r\ns1.async=true;\r\ns1.src='https:\/\/embed.tawk.to\/5bc2019c61d0b77092512d03\/default';\r\ns1.charset='UTF-8';\r\ns1.setAttribute('crossorigin','*');\r\ns0.parentNode.insertBefore(s1,s0);\r\n})();\r\n<\/script>","is_language":"1","is_loader":"1","map_key":"AIzaSyB1GpE4qeoJ__70UZxvX9CTMUTZRZNHcu8","is_disqus":"0","disqus":"<div id=\"disqus_thread\">         \r\n    <script>\r\n    \/**\r\n    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.\r\n    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https:\/\/disqus.com\/adМинут\/universalcode\/#configuration-variables*\/\r\n    \/*\r\n    var disqus_config = function () {\r\n    this.page.url = PAGE_URL;  \/\/ Replace PAGE_URL with your page's canonical URL variable\r\n    this.page.identifier = PAGE_IDENTIFIER; \/\/ Replace PAGE_IDENTIFIER with your page's unique identifier variable\r\n    };\r\n    *\/\r\n    (function() { \/\/ DON'T EDIT BELOW THIS LINE\r\n    var d = document, s = d.createElement('script');\r\n    s.src = 'https:\/\/junnun.disqus.com\/embed.js';\r\n    s.setAttribute('data-timestamp', +new Date());\r\n    (d.head || d.body).appendChild(s);\r\n    })();\r\n    <\/script>\r\n    <noscript>Please enable JavaScript to view the <a href=\"https:\/\/disqus.com\/?ref_noscript\">comments powered by Disqus.<\/a><\/noscript>\r\n    <\/div>","is_contact":"1","is_faq":"1","guest_checkout":"1","stripe_check":"1","cod_check":"1","currency_format":"0","withdraw_fee":"5","withdraw_charge":"5","tax":"0","shipping_cost":"5","smtp_host":null,"smtp_port":null,"smtp_user":null,"from_email":"test@gmail.com","from_name":"Test","is_smtp":"1","is_comment":"1","is_currency":"1","add_cart":"Successfully Added To Cart","out_stock":"Out Of Stock","add_wish":"В список желаний","already_wish":"Already Added To Wishlist","wish_remove":"Successfully Removed From The Wishlist","add_compare":"Successfully Added To Compare","already_compare":"Already Added To Compare","compare_remove":"Successfully Removed From The Compare","color_change":"Successfully Changed The Color","coupon_found":"Coupon Found","no_coupon":"No Coupon Found","already_coupon":"Coupon Already Applied","order_title":"THANK YOU FOR YOUR PURCHASE.","order_text":"We'll email you an order confirmation with details and tracking info.","is_affilate":"1","affilate_charge":"8","affilate_banner":"15587771131554048228onepiece.jpeg","already_cart":"Already Added To Cart","fixed_commission":"5","percentage_commission":"5","multiple_shipping":"1","multiple_packaging":"1","vendor_ship_info":"1","reg_vendor":"1","cod_text":"Pay with cash upon delivery.","paypal_text":"Pay via your PayPal account.","stripe_text":"Pay via your Credit Card.","header_color":"#ffffff","footer_color":"#143250","copyright_color":"#02020c","is_adМинут_loader":"1","menu_color":"#ff5500","menu_hover_color":"#02020c","is_home":"0","is_verification_email":"0","instamojo_text":"Pay via your Instamojo account.","is_instamojo":"1","instamojo_sandbox":"1","is_paystack":"1","paystack_text":"Pay via your Paystack account.","wholesell":"6","is_capcha":"1","error_banner":"1566878455404.png","is_popup":"1","popup_title":"NEWSLETTER","popup_text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita porro ipsa nulla, alias, ab Минутus.","popup_background":"1584934329adv-banner.jpg","invoice_logo":"1571567295logo.png","user_image":"1567655174profile.jpg","vendor_color":"#666666","is_secure":"1","is_report":"1","paypal_check":"1","footer_logo":"1571567309footers.png","email_encryption":null,"is_paytm":"1","paytm_text":"Pay via your Paytm account.","is_molly":"1","molly_text":"Pay with Molly Payment.","is_razorpay":"1","razorpay_text":"Pay via your Razorpay account.","show_stock":"0","is_maintain":"0","maintain_text":"<div style=\"text-align: center;\"><font size=\"5\"><br><\/font><\/div><h1 style=\"text-align: center;\"><font size=\"6\">UNDER MAINTENANCE<\/font><\/h1>"};
+      var langg    = {"rtl":"0","lang16":"Отследить заказ","lang11":"Мой аккаунт","lang221":"Панель пользователя","lang222":"Панель производителя","lang223":"Выйти","lang12":"Войти","lang13":"Присоединиться","lang220":"Продать","lang1":"Все категории","lang2":"Поиск продукта","lang3":"Корзина","lang4":"Item(s)","lang5":"View Cart","lang6":"Total","lang7":"Checkout","lang8":"Cart is empty.","lang9":"Wish","lang10":"Compare","lang14":"Categories","lang15":"See All Categories","lang17":"Home","lang18":"Blog","lang19":"Faq","lang20":"Contact Us","lang25":"Shop Now","lang26":"Featured","lang27":"Best Seller","lang244":"Flash Deal","lang28":"Top Rated","lang29":"Big Save","lang30":"Hot","lang31":"New","lang32":"Trending","lang33":"Sale","lang34":"Read More","lang236":"Brands","lang35":"Tag","lang36":"Search","lang37":"Archive","lang38":"Read More","lang39":"Blog Details","lang40":"View(s)","lang41":"Source","lang46":"Search","lang42":"Categories","lang43":"Recent Post","lang44":"Archives","lang45":"Tags","lang47":"Name","lang48":"Phone Number","lang49":"Email Address","lang50":"Your Message","lang51":"Enter Code","lang52":"Send Message","lang53":"Find Us Here","lang54":"В список желаний","lang55":"Быстрый просмотр","lang56":"В корзину","lang57":"Compare","lang251":"Купить","lang58":"Search","lang59":"Tag","lang60":"No Product Found.","lang61":"Filter Results By","lang62":"To","lang63":"Popular Tags","lang64":"Sort By","lang65":"Latest Product","lang66":"Oldest Product","lang67":"Lowest Price","lang68":"Highest Price","lang69":"Compare","lang70":"Product Compare","lang71":"Product Name","lang72":"Price","lang73":"Rating","lang74":"Description","lang75":"В корзину","lang76":"Remove","lang77":"Product SKU","lang78":"Out Of Stock","lang79":"In Stock","lang80":"Review(s)","lang224":"Add To Favorite Seller","lang225":"Favorite","lang81":"Contact Seller","lang82":"Platform","lang83":"Region","lang84":"License Type","lang85":"Product Condition","lang219":"Watch Video","lang86":"Estimated Shipping Time","lang87":"Price","lang88":"Size","lang89":"Color","lang90":"В корзину","lang91":"SHARE","lang92":"DESCRIPTION","lang93":"BUY & RETURN POLICY","lang94":"Reviews","lang95":"Comment","lang96":"Ratings & Reviews","lang97":"No Review Found.","lang98":"Review","lang99":"Your Review","lang100":"SUBMIT","lang101":"Login","lang102":"To Review","lang103":"To Comment","lang104":"Write Comment","lang105":"Write Your Comments Here...","lang106":"Post Comment","lang107":"Reply","lang108":"View","lang109":"Reply","lang110":"Replies","lang111":"Edit","lang112":"Delete","lang113":"Edit Your Comment","lang114":"Submit","lang115":"Cancel","lang116":"Edit Your Reply","lang117":"Write your reply","lang118":"Send Message","lang119":"Subject *","lang120":"Your Message","lang199":"Product Быстрый просмотр","lang216":"Related Products","lang245":"Seller's Products","lang246":"Sold By","lang247":"No Vendor Found","lang248":"Total Item","lang249":"Visit Store","lang770":"Wholesell","lang768":"Quantity","lang769":"Discount","lang771":"Off","lang776":"Report This Item","lang777":"REPORT PRODUCT","lang778":"Please give the following details","lang779":"Enter Report Title","lang780":"Enter Report Note","lang783":"Verified","lang121":"Cart","lang122":"Product Name","lang123":"Size & Color","lang124":"Quantity","lang125":"Unit Price","lang126":"Sub Total","lang127":"PRICE DETAILS","lang128":"Total MRP","lang129":"Discount","lang130":"Tax","lang131":"Total","lang132":"Have a promotion code?","lang133":"Coupon Code","lang134":"Apply","lang135":"Place Order","lang136":"Checkout","lang137":"Product Name","lang138":"Size","lang139":"Color","lang140":"Quantity","lang141":"Unit Price","lang142":"Sub Total","lang143":"Shipping Cost","lang144":"Tax","lang145":"Discount","lang146":"Total","lang147":"Billing Details","lang148":"Shipping Details","lang149":"Ship To Address","lang150":"Pick Up","lang151":"Pickup Location","lang152":"Full Name","lang153":"Phone Number","lang154":"Email","lang155":"Address","lang156":"Country","lang157":"Select Country","lang158":"City","lang159":"Postal Code","lang160":"Ship to a Different Address?","lang161":"Payment Information","lang217":"Order Note","lang218":"Optional","lang162":"Order Now","lang163":"Card Number","lang164":"Cvv","lang165":"Month","lang166":"Year","lang167":"Transaction ID#","lang743":"Address","lang744":"Orders","lang745":"Payment","lang746":"Personal Information","lang747":"Enter Your Name","lang748":"Enter Your Email","lang749":"Create an account ?","lang750":"Enter Your Password","lang751":"Confirm Your Password","lang752":"Shipping Details","lang753":"Continue","lang754":"Price","lang755":"Quantity","lang756":"Total Price","lang757":"Back","lang758":"Shipping Info","lang759":"Payment Info","lang760":"PayPal Express","lang761":"Credit Card","lang762":"Cash On Delivery","lang763":"Instamojo","paytm":"Paytm","razorpay":"Razorpay","lang764":"Paystack","lang802":"Mollie Payment","lang765":"Shipping Method","lang766":"Packaging","lang767":"Final Price","lang781":"Card number not valid","lang782":"CVC number not valid","lang168":"Wishlists","lang169":"Success","lang170":"Get Back To Our Homepage","lang171":"Login & Register","lang172":"LOGIN NOW","lang173":"Type Email Address","lang174":"Type Password","lang175":"Remember Password","lang176":"Forgot Password?","lang177":"Authenticating...","lang178":"Login","lang234":"Vendor Login","lang179":"Or","lang180":"Sign In with social media","lang181":"Signup Now","lang182":"Full Name","lang183":"Email Address","lang184":"Phone Number","lang185":"Address","lang186":"Password","lang187":"Confirm Password","lang188":"Processing...","lang189":"Register","lang235":"Vendor Registration","lang197":"Login","lang198":"Register","lang190":"Forgot Password","lang191":"Forgot Password","lang192":"Please Write your Email","lang193":"Email Address","lang194":"Login Now","lang195":"Checking...","lang196":"SUBMIT","lang226":"Store Name","lang227":"Service Center","lang228":"Contact Now","lang229":"Follow Us","lang238":"Shop Name","lang239":"Owner Name","lang240":"Shop Number","lang241":"Shop Address","lang242":"Registration Number","lang243":"Message","lang21":"Footer Links","lang22":"Home","lang23":"Contact Us","lang24":"Recent Post","add_cart":"Successfully Added To Cart","already_cart":"Already Added To Cart","out_stock":"Out Of Stock","add_wish":"Successfully Added To Wishlist","already_wish":"Already Added To Wishlist","wish_remove":"Successfully Removed From The Wishlist","add_compare":"Successfully Added To Compare","already_compare":"Already Added To Compare","compare_remove":"Successfully Removed From The Compare","color_change":"Successfully Changed The Color","coupon_found":"Coupon Found","no_coupon":"No Coupon Found","already_coupon":"Coupon Already Applied","email_not_found":"Email Not Found","something_wrong":"Oops Something Goes Wrong !!","message_sent":"Message Sent !!","order_title":"THANK YOU FOR YOUR PURCHASE.","order_text":"We'll email you an order confirmation with details and tracking info.","subscribe_success":"You have subscribed successfully.","subscribe_error":"This email has already been taken.","lang741":"Enter Your Email Address","lang742":"SUBSCRIBE","lang427":"404","lang428":"Oops! You're lost...","lang429":"The page you are looking for might have been moved, renamed, or might never existed.","lang430":"Back Home","lang200":"Dashboard","lang230":"Vendor Panel","lang201":"Purchased Items","lang202":"Affiliate Code","lang203":"Withdraw","lang231":"Favorite Sellers","lang232":"Messages","lang204":"Tickets","lang250":"Disputes","lang205":"Edit Profile","lang206":"Reset Password","lang207":"Logout","lang233":"Start Selling","lang237":"Pricing Plans","lang208":"Account Information","lang209":"Email","lang210":"Phone","lang211":"Fax","lang212":"City","lang213":"Zip","lang214":"Address","lang215":"Affiliate Bonus","lang808":"Recent Orders","lang809":"Total Orders","lang810":"Pending Orders","lang811":"All Time","lang812":"My Balance","lang277":"Purchased Items","lang278":"#Order","lang279":"Date","lang280":"Order Total","lang281":"Order Status","lang282":"View","lang283":"VIEW ORDER","lang284":"My Order Details","lang285":"Order#","lang286":"Print","lang301":"Order Date","lang287":"Billing Address","lang288":"Name:","lang289":"Email:","lang290":"Phone:","lang291":"Address:","lang292":"Payment Information","lang293":"Paid Amount:","lang294":"Payment Method:","lang295":"Charge ID:","lang296":"Transaction ID:","lang297":"Edit Transaction ID","lang298":"Cancel","lang299":"Enter Transaction ID & Press Enter","lang300":"Submit","lang302":"Shipping Address","lang303":"PickUp Location","lang304":"Address:","lang305":"Shipping Method","lang306":"Ship To Address","lang307":"Pick Up","lang308":"Ordered Products:","lang309":"ID#","lang310":"Name","lang311":"Quantity","lang312":"Size","lang313":"Color","lang314":"Price","lang315":"Total","lang316":"Download","lang317":"View License","lang318":"Back","lang319":"License Key","lang320":"The Licenes Key is :","lang321":"Close","lang322":"Affiliate Informations","lang323":"Your Affilate Link *","lang324":"This is your affilate link just copy the link and paste anywhere you want.","lang325":"Affiliate Banner *","lang326":"This is your affilate banner Preview.","lang327":"Affiliate Banner HTML Code *","lang328":"This is your affilate banner html code just copy the code and paste anywhere you want.","lang329":"My Withdraws","lang330":"Withdraw Now","lang331":"Withdraw Date","lang332":"Method","lang333":"Account","lang334":"Amount","lang335":"Status","lang336":"Withdraw Now","lang337":"Back","lang338":"Withdraw Method","lang339":"Select Withdraw Method","lang340":"Paypal","lang341":"Skrill","lang342":"Payoneer","lang343":"Bank","lang344":"Withdraw Amount","lang345":"Enter Account Email","lang346":"Enter IBAN\/Account No","lang347":"Enter Account Name","lang348":"Enter Address","lang349":"Enter Swift Code","lang350":"Additional Reference(Optional)","lang351":"Withdraw Fee","lang352":"and","lang353":"will deduct from your account.","lang354":"Withdraw","lang355":"Current Balance","lang772":"Order Tracking","lang773":"Get Tracking Code","lang774":"View Tracking","lang775":"No Order Found","lang252":"Favorite Sellers","lang253":"Shop Name","lang254":"Owner Name","lang255":"Address","lang256":"Actions","lang257":"Confirm Delete","lang258":"You are about to delete this Seller.","lang259":"Do you want to proceed?","lang260":"Cancel","lang261":"Delete","lang356":"Messages","lang357":"Compose Message","lang358":"Name","lang359":"Message","lang360":"Sent","lang361":"Action","lang362":"Send Message","lang363":"Email","lang364":"Subject","lang365":"Your Message","lang366":"Send Message","lang367":"Confirm Delete","lang368":"You are about to delete this Conversation.","lang369":"Do you want to proceed?","lang370":"Cancel","lang371":"Delete","lang372":"Conversation with","lang373":"Back","lang374":"Message","lang375":"Add Reply","lang376":"Tickets","lang377":"Add Ticket","lang378":"Disputes","lang379":"Add Dispute","lang380":"Subject","lang381":"Message","lang382":"Time","lang383":"Action","lang384":"Add Ticket","lang385":"Add Dispute","lang386":"Order Number","lang387":"Subject","lang388":"Your Message","lang389":"Send","lang390":"Confirm Delete","lang391":"You are about to delete this Ticket.","lang392":"You are about to delete this Dispute.","lang393":"Do you want to proceed?","lang394":"Cancel","lang395":"Delete","lang396":"Order Number:","lang397":"Subject:","lang398":"Back","lang399":"AdМинут","lang400":"Message","lang401":"Add Reply","lang262":"Edit Profile","lang263":"Upload","lang264":"User Name","lang265":"Email Address","lang266":"Phone Number","lang267":"Fax","lang268":"City","lang269":"Zip","lang270":"Address","lang271":"Save","lang272":"Reset Password","lang273":"Current Password","lang274":"New Password","lang275":"Re-Type New Password","lang276":"Submit","lang402":"Free","lang403":"Day(s)","lang404":"Current Plan","lang405":"Expired on:","lang406":"Ends on:","lang407":"Renew","lang408":"Get Started","lang409":"Package Details","lang410":"Back","lang411":"Plan:","lang412":"Price:","lang413":"Durations:","lang414":"Product(s) Allowed:","lang415":"Note:","lang416":"Your Previous Plan will be deactivated!","lang417":"(Optional)","lang418":"Select Payment Method","lang419":"Select an option","lang420":"Paypal","lang421":"Stripe","lang422":"Card","lang423":"Cvv","lang424":"Month","lang425":"Year","lang426":"Submit","lang517":"(In Any Language)","lang518":"ADD NEW","lang519":"EDIT","lang431":"Welcome!","lang432":"Visit Store","lang433":"User Panel","lang434":"Edit Profile","lang435":"Logout","lang436":"New Order(s).","lang437":"Clear All","lang438":"You Have a new order.","lang439":"No New Notifications.","lang440":"Visit Store","lang441":"Dashbord","lang442":"Orders","lang443":"All Orders","lang444":"Products","lang445":"Add New Product","lang446":"All Products","lang785":"Product Catalogs","lang447":"Affiliate Products","lang448":"Add Affiliate Product","lang449":"All Affiliate Products","lang450":"Bulk Product Upload","lang451":"Withdraws","lang452":"Settings","lang453":"Services","lang454":"Banner","lang455":"Shipping Cost","lang456":"Social Links","lang784":"Verify Account","lang457":"Shop Name","lang458":"Owner Name","lang459":"Shop Number","lang460":"Shop Address","lang461":"Registration Number","lang462":"(Optional)","lang463":"Shop Details","lang464":"Save","lang786":"Vendor Verification","lang787":"Details","lang788":"Enter Verification Details","lang789":"Attachment","lang792":"(Maximum Size is: 10MB)","lang790":"Add More Attachment","lang791":"Submit","lang803":"Verify Now","lang804":"Your Documents Submitted Successfully.","lang465":"Orders Pending!","lang466":"Orders Procsessing!","lang467":"Orders Completed!","lang468":"Total Products!","lang469":"Total Item Sold!","lang470":"Total Earnings!","lang471":"View All","lang534":"Order Number","lang535":"Total Qty","lang536":"Total Cost","lang537":"Payment Method","lang538":"Actions","lang539":"Details","lang540":"Pending","lang541":"Processing","lang542":"Completed","lang543":"Declined","lang544":"Update Status","lang545":"You are about to update the Order's Status.","lang546":"Do you want to proceed?","lang547":"Cancel","lang548":"Proceed","lang549":"Order Details","lang795":"Payment Method","lang796":"Charge ID","lang797":"Transaction ID","lang798":"Payment Status","lang799":"Unpaid","lang800":"Paid","lang801":"Order Note","lang550":"Back","lang551":"Order ID","lang552":"Total Product","lang553":"Total Cost","lang554":"Ordered Date","lang555":"View Invoice","lang556":"Billing Details","lang557":"Customer Name","lang558":"Email","lang559":"Phone","lang560":"Address","lang561":"Country","lang562":"City","lang563":"Postal Code","lang564":"Shipping Details","lang565":"Pickup Location","lang566":"Products Ordered","lang567":"Product ID#","lang568":"Shop Name","lang569":"Status","lang570":"Product Title","lang571":"Quantity","lang572":"Size","lang573":"Color","lang574":"Total Price","lang575":"Vendor Removed","lang576":"Send Email","lang577":"License Key","lang578":"The Licenes Key is","lang579":"Enter New License Key","lang580":"Close","lang584":"Cancel","lang585":"Save License","lang583":"Email Address","lang581":"Subject","lang582":"Your Message","lang586":"Order Invoice","lang587":"Billing Address","lang588":"Invoice Number","lang589":"Order Date","lang590":"Order ID","lang591":"Product","lang592":"Size","lang593":"Color","lang594":"Price","lang595":"Qty","lang596":"Packaging Cost","lang597":"Subtotal","lang598":"Shipping Cost","lang599":"TAX","lang600":"Total","lang601":"Order Details","lang602":"Shipping Method","lang603":"Pick Up","lang604":"Ship To Address","lang605":"Payment Method","lang606":"Shipping Address","lang607":"Print Invoice","lang608":"Name","lang793":"Product Sku","lang794":"Enter Product Sku","lang609":"Type","lang610":"Price","lang611":"Status","lang612":"Actions","lang713":"Activated","lang714":"Deactivated","lang715":"Edit","lang716":"View Gallery","lang613":"Close","lang614":"Confirm Delete","lang615":"You are about to delete this Product.","lang616":"Do you want to proceed?","lang617":"Cancel","lang618":"Delete","lang619":"Image Gallery","lang620":"Upload File","lang621":"Done","lang622":"You can upload multiple Images.","lang623":"Add New Product","lang624":"No Images Found.","lang625":"Product Types","lang626":"Physical","lang627":"Digital","lang628":"License","lang629":"Physical Product","lang630":"Digital Product","lang631":"License Product","lang632":"Product Name","lang633":"Allow Product Condition","lang634":"Product Condition","lang635":"New","lang636":"Used","lang637":"Category","lang691":"Select Category","lang638":"Sub Category","lang639":"Select Sub Category","lang640":"Child Category","lang641":"Select Child Category","lang642":"Feature Image","lang643":"Upload Image Here","lang644":"Product Gallery Images","lang645":"Set Gallery","lang646":"Allow Estimated Shipping Time","lang647":"Product Estimated Shipping Time","lang648":"Allow Product Sizes","lang649":"Size Name","lang650":"(eg. S,M,L,XL,XXL,3XL,4XL)","lang651":"Size Qty","lang652":"(Number of quantity of this size)","lang653":"Size Price","lang654":"(This price will be added with base price)","lang655":"Add More Size","lang656":"Allow Product Colors","lang657":"Product Colors","lang658":"(Choose Your Favorite Colors)","lang659":"Add More Color","lang660":"Allow Product Whole Sell","lang661":"Enter Quantity","lang662":"Enter Discount Percentage","lang663":"Add More Field","lang664":"Product Current Price","lang665":"In","lang666":"e.g 20","lang667":"Product Previous Price","lang668":"(Optional)","lang669":"Product Stock","lang670":"(Leave Empty will Show Always Available)","lang671":"Allow Product Measurement","lang672":"Product Measurement","lang673":"None","lang674":"Gram","lang675":"Kilogram","lang676":"Litre","lang677":"Pound","lang678":"Custom","lang679":"Enter Unit","lang680":"Product Description","lang681":"Product Buy\/Return Policy","lang682":"Youtube Video URL","lang683":"Allow Product SEO","lang684":"Meta Tags","lang685":"Meta Description","lang686":"Feature Tags","lang687":"Enter Your Keyword","lang688":"Add More Field","lang689":"Tags","lang690":"Create Product","lang692":"Select Upload Type","lang693":"Upload By File","lang694":"Upload By Link","lang695":"Select File","lang696":"Link","lang697":"Product License","lang698":"License Key","lang699":"License Quantity","lang700":"Add More Field","lang701":"Product Platform","lang702":"Product Region","lang703":"License Type","lang704":"Edit Product","lang705":"Edit","lang706":"Save","lang707":"Product Affiliate Link","lang708":"(External Link)","lang709":"Feature Image Source","lang710":"File","lang711":"Link","lang712":"Feature Image Link","lang805":"Prefered Size: (800x800) or Square Size.","lang806":"Image height and width must be 600 x 600.","lang807":"Image must have square size.","lang531":"Download Sample CSV","lang532":"Upload a File","lang533":"Start Import","lang472":"My Withdraws","lang473":"Withdraw Now","lang474":"Withdraw Date","lang475":"Method","lang476":"Account","lang477":"Amount","lang478":"Status","lang479":"Withdraw Now","lang480":"Back","lang481":"Withdraw Method","lang482":"Select Withdraw Method","lang483":"Paypal","lang484":"Skrill","lang485":"Payoneer","lang486":"Bank","lang487":"Withdraw Amount","lang488":"Enter Account Email","lang489":"Enter IBAN\/Account No","lang490":"Enter Account Name","lang491":"Enter Address","lang492":"Enter Swift Code","lang493":"Additional Reference(Optional)","lang494":"Withdraw Fee","lang495":"and","lang496":"will deduct from your account.","lang497":"Withdraw","lang498":"Current Balance","lang499":"SERVICE","lang500":"Featured Image","lang501":"Title","lang502":"Actions","lang717":"Edit","lang503":"Close","lang504":"Confirm Delete","lang505":"You are about to delete this Service.","lang506":"Do you want to proceed?","lang507":"Cancel","lang508":"Delete","lang509":"Add New Service","lang510":"Title","lang511":"Current Featured Image","lang512":"Upload Image","lang513":"Prefered Size: (600x600) or Square Sized Image","lang514":"Description","lang515":"Create Service","lang516":"Save","lang718":"SHIPPING METHOD","lang719":"Shipping Methods","lang720":"PACKAGING","lang721":"Packagings","lang722":"Title","lang723":"Price","lang724":"Actions","lang725":"Edit","lang726":"Close","lang734":"Confirm Delete","lang727":"You are about to delete this Shipping Method.","lang728":"You are about to delete this Packaging.","lang729":"Do you want to proceed?","lang730":"Cancel","lang731":"Delete","lang732":"Add New Shipping Method","lang733":"Add New Packaging","lang735":"Title","lang736":"Subtitle","lang737":"Duration","lang738":"Price","lang739":"Create","lang740":"Save","lang520":"Current Banner","lang521":"Prefered Size: (1920x220) Image","lang522":"Upload Banner","lang523":"Save","lang524":"Shipping Cost","lang525":"Save","lang526":"Facebook","lang527":"Google Plus","lang528":"Twitter","lang529":"Linkedin","lang530":"Save"};
+    </script>
+    
+    <script src="./resource/jquery.js"></script>
+    <script src="./resource/vue.js"></script>
+    <script src="./resource/jquery-ui.min.js"></script>
+    
+    <script src="./resource/popper.min.js"></script>
+    
+    <script src="./resource/bootstrap.min.js"></script>
+    
+    <script src="./resource/plugin.js"></script>
+    <script src="./resource/xzoom.min.js"></script>
+    <script src="./resource/jquery.hammer.min.js"></script>
+    <script src="./resource/setup.js"></script>
+    <script src="./resource/toastr.js"></script>
+    
+    <script src="./resource/main.js"></script>
+    
+    <script src="./resource/custom.js"></script>
+    <style href="./resource/awesome.css"/>
+    <script>
+            function lazy (){
+                return;
+                $(".lazy").Lazy({
+                    scrollDirection: 'vertical',
+                    effect: 'fadeIn',
+                    visibleOnly: true,
+                    onError: function(element) {
+                        console.log('error loading ' + element.data('src'));
+                    }
+                });
+            }
+        </script>
+        <script src="./resource/mainextra.js"></script>
+        <script>
+                lazy();
+            </script>
+    </div></body></html>
